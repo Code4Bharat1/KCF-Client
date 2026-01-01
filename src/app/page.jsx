@@ -9,6 +9,7 @@ import SupportingMembers from '@/components/home/SupportingMembers'
 import About from '@/components/home/AboutUs'
 import VisionAndMission from '@/components/home/VisionAndMission'
 import OurAchievements from '@/components/home/OurAchievements'
+import FormCompo from '@/components/FormCompo/FormCompo'
 
 function page() {
   return (
@@ -18,6 +19,7 @@ function page() {
       <About/>
       <VisionAndMission/>
       <OurAchievements/>
+      <FormCompo/>
       {/* <CommitteMember/>
       <SupportingMembers/> */}
       <Contact/>

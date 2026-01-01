@@ -1,13 +1,13 @@
-import React from 'react'
+import Donors from '@/components/donors/Donors'
 import Navbar from '@/components/home/Navbar'
 import Footer from '@/components/home/Footer'
-import CommitteeMember from '@/components/home/CommitteMember'
+import React from 'react'
 
 function page() {
   return (
     <div>
         <Navbar/>
-        <CommitteeMember/>
+        <Donors/>
         <Footer/>
     </div>
   )

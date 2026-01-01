@@ -1,5 +1,3 @@
-
-
 "use client"
 
 import React, { useState, useEffect } from 'react'
@@ -177,10 +175,17 @@ function Navbar() {
               </div>
             </div>
 
-            <button onClick={() => handleNavigation('/#events')} className="relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-200 group">
+            <button onClick={() => handleNavigation('/events')} className="relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-200 group">
               Events
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
             </button>
+
+            {/* Support Link */}
+            <button onClick={() => handleNavigation('/support')} className="relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-200 group">
+              Support
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
+            </button>
+
             <button onClick={() => handleNavigation('/#contact')} className="relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-200 group">
               Contact Us
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
@@ -327,6 +332,15 @@ function Navbar() {
             >
               Events
             </button>
+
+            {/* Mobile Support Link */}
+            <button 
+              onClick={() => handleNavigation('/support')} 
+              className="w-full text-left block px-4 py-3 text-gray-700 hover:bg-white hover:text-green-600 hover:pl-6 rounded-lg font-medium transition-all duration-200 hover:shadow-sm"
+            >
+              Support
+            </button>
+
             <button 
               onClick={() => handleNavigation('/#contact')} 
               className="w-full text-left block px-4 py-3 text-gray-700 hover:bg-white hover:text-green-600 hover:pl-6 rounded-lg font-medium transition-all duration-200 hover:shadow-sm"

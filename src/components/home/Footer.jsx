@@ -225,22 +225,25 @@ function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-green-100 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-gray-600 text-sm text-center md:text-left">
+          <div className="flex flex-col items-center gap-4">
+            <div className="text-gray-600 text-sm text-center">
               © {currentYear} Kokan Community Forum. All rights reserved.
             </div>
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
-              <a href="#" className="text-gray-600 hover:text-green-600 transition-colors duration-200">
-                Privacy Policy
-              </a>
-              <span className="text-gray-300">|</span>
-              <a href="#" className="text-gray-600 hover:text-green-600 transition-colors duration-200">
-                Terms of Service
-              </a>
-              <span className="text-gray-300">|</span>
-              <a href="#" className="text-gray-600 hover:text-green-600 transition-colors duration-200">
-                Cookie Policy
-              </a>
+
+            {/* Credit Section */}
+            <div className="pt-4 border-t border-green-100 text-center">
+              <p className="text-gray-600 text-sm">
+                <span className="italic">"By Kokani. For Kokani. Built with purpose."</span>
+                {' '}— {' '}
+                <a 
+                  href="https://www.nexcorealliance.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-green-600 hover:text-green-700 font-semibold transition-colors duration-200 hover:underline"
+                >
+                  www.nexcorealliance.com
+                </a>
+              </p>
             </div>
           </div>
         </div>

@@ -92,8 +92,13 @@ function SupportingMembers() {
     setTimeout(() => setSelectedMember(null), 300)
   }
 
+  // Generate placeholder with initials
+  const getPlaceholder = (name) => {
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&size=400&background=22c55e&color=ffffff&bold=true&length=2`
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50 pt-28 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50 pt-36 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
@@ -121,7 +126,8 @@ function SupportingMembers() {
                   alt={member.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   onError={(e) => {
-                    e.target.src = "https://via.placeholder.com/400x400/22c55e/ffffff?text=" + member.name.charAt(0)
+                    e.target.onerror = null
+                    e.target.src = getPlaceholder(member.name)
                   }}
                 />
                 {/* Position Badge */}
@@ -176,7 +182,8 @@ function SupportingMembers() {
                   alt={selectedMember.name}
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    e.target.src = "https://via.placeholder.com/600x400/22c55e/ffffff?text=" + selectedMember.name.charAt(0)
+                    e.target.onerror = null
+                    e.target.src = getPlaceholder(selectedMember.name)
                   }}
                 />
               </div>
