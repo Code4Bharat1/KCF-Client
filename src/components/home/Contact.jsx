@@ -1,11 +1,9 @@
-
 "use client"
 
 import React, { useState } from 'react'
 import axios from "axios"
 
 const API_URL = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:5000"
-
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -26,35 +24,34 @@ function Contact() {
   }
 
   const handleSubmit = async (e) => {
-  e.preventDefault()
-  setIsSubmitting(true)
+    e.preventDefault()
+    setIsSubmitting(true)
 
-  try {
-    const response = await axios.post(
-      `${API_URL}/api/contact-form`, // 🔁 CHANGE API URL HERE
-      formData
-    )
+    try {
+      const response = await axios.post(
+        `${API_URL}/api/contact-form`,
+        formData
+      )
 
-    setSubmitStatus("success")
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    })
+      setSubmitStatus("success")
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      })
 
-    setTimeout(() => setSubmitStatus(null), 5000)
-  } catch (error) {
-    console.error("Submit error:", error)
+      setTimeout(() => setSubmitStatus(null), 5000)
+    } catch (error) {
+      console.error("Submit error:", error)
 
-    setSubmitStatus("error")
-    setTimeout(() => setSubmitStatus(null), 5000)
-  } finally {
-    setIsSubmitting(false)
+      setSubmitStatus("error")
+      setTimeout(() => setSubmitStatus(null), 5000)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
-}
-
 
   const contactInfo = [
     {
@@ -163,30 +160,33 @@ function Contact() {
   return (
     <div id='contact' className="bg-gradient-to-b from-white to-gray-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-green-600 to-green-500 text-white overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-r from-green-600 to-green-500 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00em0wLTEwYzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHptMC0xMGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAxLjc5IDQgNCA0IDQtMS43OSA0LTR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Get In Touch</h1>
-            <p className="text-xl md:text-2xl text-green-50 max-w-3xl mx-auto">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">Get In Touch</h1>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-green-50 max-w-3xl mx-auto px-2">
               Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-16 -mt-12 relative z-10">
+      {/* Contact Info Cards - FIXED FOR MOBILE */}
+      <section className="py-8 sm:py-12 md:py-16 -mt-8 sm:-mt-12 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-6">
+          {/* Changed to grid-cols-1 for mobile, sm:grid-cols-2 for tablets, lg:grid-cols-3 for desktop */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {contactInfo.map((info, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                <div className={`w-16 h-16 bg-gradient-to-r ${info.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
+              <div key={index} className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                <div className={`w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r ${info.color} rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg`}>
                   {info.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">{info.title}</h3>
-                <p className="text-gray-700 font-medium mb-1">{info.details}</p>
-                <p className="text-gray-500 text-sm">{info.subdetails}</p>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">{info.title}</h3>
+                <p className="text-sm sm:text-base text-gray-700 font-medium mb-1 break-words">{info.details}</p>
+                {info.subdetails && (
+                  <p className="text-xs sm:text-sm text-gray-500">{info.subdetails}</p>
+                )}
               </div>
             ))}
           </div>
@@ -194,28 +194,37 @@ function Contact() {
       </section>
 
       {/* Main Contact Form Section */}
-      <section className="py-20">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
 
             {/* Left Side - Form */}
-            <div className="bg-white rounded-3xl shadow-xl p-8 md:p-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Send Us a Message</h2>
-              <p className="text-gray-600 mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
+            <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 md:p-10">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2 sm:mb-3">Send Us a Message</h2>
+              <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
 
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl flex items-center gap-3 text-green-700">
                   <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span className="font-medium">Message sent successfully! We'll be in touch soon.</span>
+                  <span className="text-sm sm:text-base font-medium">Message sent successfully! We'll be in touch soon.</span>
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+              {submitStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3 text-red-700">
+                  <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-sm sm:text-base font-medium">Something went wrong. Please try again.</span>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                   <div>
-                    <label className="block text-gray-700 font-semibold mb-2" htmlFor="name">
+                    <label className="block text-sm sm:text-base text-gray-700 font-semibold mb-2" htmlFor="name">
                       Full Name *
                     </label>
                     <input
@@ -225,12 +234,12 @@ function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 outline-none"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 outline-none"
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-700 font-semibold mb-2" htmlFor="email">
+                    <label className="block text-sm sm:text-base text-gray-700 font-semibold mb-2" htmlFor="email">
                       Email Address *
                     </label>
                     <input
@@ -240,15 +249,15 @@ function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 outline-none"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 outline-none"
                       placeholder="you@example.com"
                     />
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                   <div>
-                    <label className="block text-gray-700 font-semibold mb-2" htmlFor="phone">
+                    <label className="block text-sm sm:text-base text-gray-700 font-semibold mb-2" htmlFor="phone">
                       Phone Number
                     </label>
                     <input
@@ -257,12 +266,12 @@ function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 outline-none"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 outline-none"
                       placeholder="+91 98765 43210"
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-700 font-semibold mb-2" htmlFor="subject">
+                    <label className="block text-sm sm:text-base text-gray-700 font-semibold mb-2" htmlFor="subject">
                       Subject *
                     </label>
                     <select
@@ -271,7 +280,7 @@ function Contact() {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 outline-none appearance-none bg-white"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 outline-none appearance-none bg-white"
                     >
                       <option value="">Select a subject</option>
                       <option value="membership">Membership Inquiry</option>
@@ -284,7 +293,7 @@ function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2" htmlFor="message">
+                  <label className="block text-sm sm:text-base text-gray-700 font-semibold mb-2" htmlFor="message">
                     Your Message *
                   </label>
                   <textarea
@@ -293,8 +302,8 @@ function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows="6"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 outline-none resize-none"
+                    rows="5"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 outline-none resize-none"
                     placeholder="Tell us more about your inquiry..."
                   ></textarea>
                 </div>
@@ -302,7 +311,7 @@ function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-green-200 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 ${
+                  className={`w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg shadow-green-200 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 ${
                     isSubmitting ? 'opacity-75 cursor-not-allowed' : 'hover:scale-[1.02] active:scale-95'
                   }`}
                 >
@@ -324,47 +333,47 @@ function Contact() {
             </div>
 
             {/* Right Side - Additional Info */}
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {/* Map Placeholder */}
-              <div className="bg-white rounded-3xl shadow-xl p-6 overflow-hidden">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">Find Us Here</h3>
+              <div className="bg-white rounded-3xl shadow-xl p-5 sm:p-6 overflow-hidden">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-4">Find Us Here</h3>
                 <div className="aspect-video bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl flex items-center justify-center">
-                  <div className="text-center">
-                    <svg className="w-20 h-20 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="text-center px-4">
+                    <svg className="w-16 h-16 sm:w-20 sm:h-20 text-green-600 mx-auto mb-3 sm:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                     </svg>
-                    <p className="text-gray-600 font-medium">KCF Community Center</p>
-                    <p className="text-gray-500 text-sm">Mumbai, Maharashtra</p>
+                    <p className="text-sm sm:text-base text-gray-600 font-medium">KCF Community Center</p>
+                    <p className="text-xs sm:text-sm text-gray-500">Mumbai, Maharashtra</p>
                   </div>
                 </div>
               </div>
 
               {/* Social Media */}
-              <div className="bg-white rounded-3xl shadow-xl p-8">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">Connect With Us</h3>
-                <p className="text-gray-600 mb-6">Follow us on social media for updates and community news</p>
-                <div className="flex flex-wrap gap-4">
+              <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-4">Connect With Us</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">Follow us on social media for updates and community news</p>
+                <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 sm:gap-4">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.url}
-                      className={`flex items-center gap-2 px-5 py-3 bg-gray-50 rounded-xl font-medium text-gray-700 ${social.color} transition-all duration-300 hover:scale-105 hover:shadow-md`}
+                      className={`flex items-center justify-center sm:justify-start gap-2 px-4 sm:px-5 py-2.5 sm:py-3 bg-gray-50 rounded-xl text-sm sm:text-base font-medium text-gray-700 ${social.color} transition-all duration-300 hover:scale-105 hover:shadow-md`}
                     >
                       {social.icon}
-                      <span>{social.name}</span>
+                      <span className="text-xs sm:text-base">{social.name}</span>
                     </a>
                   ))}
                 </div>
               </div>
 
               {/* FAQs */}
-              <div className="bg-white rounded-3xl shadow-xl p-8">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">Quick Questions</h3>
+              <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">Quick Questions</h3>
                 <div className="space-y-4">
                   {faqs.map((faq, index) => (
-                    <div key={index} className="border-l-4 border-green-500 pl-4 py-2">
-                      <h4 className="font-bold text-gray-800 mb-2">{faq.question}</h4>
-                      <p className="text-gray-600 text-sm">{faq.answer}</p>
+                    <div key={index} className="border-l-4 border-green-500 pl-3 sm:pl-4 py-2">
+                      <h4 className="text-sm sm:text-base font-bold text-gray-800 mb-1 sm:mb-2">{faq.question}</h4>
+                      <p className="text-xs sm:text-sm text-gray-600">{faq.answer}</p>
                     </div>
                   ))}
                 </div>
