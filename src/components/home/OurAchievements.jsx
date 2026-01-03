@@ -8,37 +8,37 @@ function OurAchievements() {
       id: 1,
       title: 'Community Service Initiative',
       description: 'Successfully organized blood donation camps and health awareness programs',
-      image: '/achievements/community-service.jpg'
+      image: '/achievements/image1.jpg'
     },
     {
       id: 2,
       title: 'Educational Scholarship Program',
       description: 'Provided scholarships to deserving students from underprivileged backgrounds',
-      image: '/achievements/scholarship.jpg'
+      image: '/achievements/image2.jpg'
     },
     {
       id: 3,
       title: 'Cultural Heritage Preservation',
       description: 'Organized cultural events and workshops to preserve Kokan traditions',
-      image: '/achievements/cultural-event.jpg'
+      image: '/achievements/image3.jpg'
     },
     {
       id: 4,
       title: 'World Kokani Day Celebration',
       description: 'Annual celebration bringing together the entire Kokan community',
-      image: '/achievements/kokani-day.jpg'
+      image: '/achievements/image4.jpg'
     },
     {
       id: 5,
       title: 'Youth Empowerment Programs',
       description: 'Skill development workshops and mentorship programs for youth',
-      image: '/achievements/youth-program.jpg'
+      image: '/achievements/image5.jpg'
     },
     {
       id: 6,
       title: 'Social Welfare Projects',
       description: 'Food distribution drives and support for underprivileged families',
-      image: '/achievements/welfare.jpg'
+      image: '/achievements/image6.jpg'
     }
   ]
 

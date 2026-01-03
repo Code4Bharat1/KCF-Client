@@ -2,6 +2,11 @@
 "use client"
 
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import axios from 'axios'
+
+const API_URL = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:5000"
+
 
 function Admin() {
   const [formData, setFormData] = useState({
@@ -10,6 +15,7 @@ function Admin() {
   })
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
 
   const handleChange = (e) => {
     setFormData({
@@ -19,25 +25,40 @@ function Admin() {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsLoading(true)
+  e.preventDefault();
+  setIsLoading(true);
 
-    try {
-      // Add your login API call here
-      console.log('Login data:', formData)
+  try {
+    const response = await axios.post(
+      `${API_URL}/api/admin/login`,
+      {
+        email: formData.email,
+        password: formData.password,
+      },
+      {
+        withCredentials: true, // REQUIRED for cookie
+      }
+    );
 
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500))
-
-      alert('Login successful!')
-
-    } catch (error) {
-      console.error('Login error:', error)
-      alert('Login failed. Please try again.')
-    } finally {
-      setIsLoading(false)
+    if (response.data.success) {
+      // alert(response.data.message); // "Login successful"
+      
+      // optional: redirect after login
+      router.push("/admin-dashboard");
     }
+
+  } catch (error) {
+    console.error("Login error:", error);
+
+    alert(
+      error.response?.data?.message ||
+      "Login failed. Please try again."
+    );
+  } finally {
+    setIsLoading(false);
   }
+};
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50 flex items-center justify-center px-4 py-12">
@@ -128,7 +149,7 @@ function Admin() {
               </div>
 
               {/* Remember Me & Forgot Password */}
-              <div className="flex items-center justify-between">
+              {/* <div className="flex items-center justify-between">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="checkbox"
@@ -139,7 +160,7 @@ function Admin() {
                 <a href="#" className="text-sm font-semibold text-green-600 hover:text-green-700 transition-colors">
                   Forgot Password?
                 </a>
-              </div>
+              </div> */}
 
               {/* Login Button */}
               <button

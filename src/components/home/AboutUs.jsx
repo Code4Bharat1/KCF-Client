@@ -65,7 +65,7 @@ function AboutUs() {
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="/about-us-image.jpg"
+                  src="/image.png"
                   alt="Kokan Community Forum"
                   className="w-full h-full object-cover"
                   onError={(e) => {
