@@ -10,51 +10,83 @@ function CommitteeMember() {
   const committeeMembers = [
     {
       id: 1,
-      name: "Dr. Rajesh Kumar",
-      image: "/committeeMember/committeeMember1.jpg",
+      name: "Mr.Salman A S Kardame",
+      image: "/committeeMember/Mr.Salman.png",
       qualification: "Ph.D. in Computer Science",
       position: "President",
       description: "Dr. Rajesh Kumar has been leading the Kokan Community Forum for over 5 years. He is dedicated to promoting education and social welfare in the Konkan region. His vision has helped thousands of students achieve their dreams."
     },
     {
       id: 2,
-      name: "Mrs. Priya Sharma",
-      image: "/committee/member2.jpg",
+      name: "Mr. Alimiya Hamza Dalvi",
+      image: "/committeeMember/Mr.Alimiya.png",
       qualification: "MBA, M.A. in Social Work",
       position: "Vice President",
       description: "Mrs. Priya Sharma brings extensive experience in community development and has been instrumental in organizing various educational programs and scholarship initiatives for underprivileged students."
     },
     {
       id: 3,
-      name: "Mr. Anil Desai",
-      image: "/committee/member3.jpg",
+      name: "Mrs. Sufiya Hanif",
+      image: "/committeeMember/Mrs.Sufiya.png",
       qualification: "B.Com, CA",
       position: "Treasurer",
       description: "Mr. Anil Desai manages all financial operations of the forum with transparency and integrity. His financial expertise ensures that every donation reaches the right beneficiaries."
     },
     {
       id: 4,
-      name: "Dr. Sunita Patil",
-      image: "/committee/member4.jpg",
+      name: "Mr.Sajjad Khatib",
+      image: "/committeeMember/Mr.Sajjad.jpeg",
       qualification: "M.D., MBBS",
       position: "Secretary",
       description: "Dr. Sunita Patil coordinates all activities and maintains records of the forum. She has been actively involved in health awareness campaigns across Konkan villages."
     },
     {
       id: 5,
-      name: "Mr. Vikram Naik",
-      image: "/committee/member5.jpg",
+      name: "Mrs.Musarrat Khatib",
+      image: "/committeeMember/Mrs.Musarrat.png",
       qualification: "B.Tech, MBA",
       position: "Joint Secretary",
       description: "Mr. Vikram Naik assists in organizing events and programs. He specializes in youth engagement and has launched several skill development initiatives."
     },
     {
       id: 6,
-      name: "Mrs. Anjali Sawant",
-      image: "/committee/member6.jpg",
+      name: "Mohammed Irfan Kazi",
+      image: "/committeeMember/Mohammed.jpeg",
       qualification: "M.A. in Education",
       position: "Education Coordinator",
       description: "Mrs. Anjali Sawant oversees all educational programs and scholarship distributions. Her passion for education has helped shape the future of many young students."
+    },
+    {
+      id: 7,
+      name: "Dr Nargis Atiq Shaikh(Kardekar)",
+      image: "/committeeMember/Dr Nargis Atiq Shaikh(Kardekar).jpeg",
+      qualification: "B.Tech, MBA",
+      position: "Joint Secretary",
+      description: "Mr. Vikram Naik assists in organizing events and programs. He specializes in youth engagement and has launched several skill development initiatives."
+    },
+    {
+      id: 8,
+      name: "Umair Anis Ibji",
+      image: "/committeeMember/Umair Anis Ibji.png",
+      qualification: "B.Tech, MBA",
+      position: "Joint Secretary",
+      description: "Mr. Vikram Naik assists in organizing events and programs. He specializes in youth engagement and has launched several skill development initiatives."
+    },
+    {
+      id: 9,
+      name: "Hanif Husain Parkar",
+      image: "/committeeMember/Hanif Husain Parkar.png",
+      qualification: "B.Sc, M.Sc",
+      position: "Joint Secretary",
+      description: "Mr. Rahul Sharma supports coordination of internal activities and assists in managing student-focused programs. He is actively involved in planning workshops and community engagement initiatives."
+   },
+   {
+      id: 10,
+      name: "Atique Kasu",
+      image: "/committeeMember/Atique Kasu.png",
+      qualification: "B.Sc, M.Sc",
+      position: "Joint Secretary",
+      description: "Mr. Rahul Sharma supports coordination of internal activities and assists in managing student-focused programs. He is actively involved in planning workshops and community engagement initiatives."
     }
   ]
 
@@ -97,11 +129,11 @@ function CommitteeMember() {
               className="bg-white rounded-xl shadow-lg border border-green-100 overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl group"
             >
               {/* Member Image */}
-              <div className="relative h-64 bg-gradient-to-br from-green-100 to-green-50 overflow-hidden">
+              <div className="relative h-80 bg-gradient-to-br from-green-100 to-green-50 overflow-hidden">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-300"
                   onError={(e) => {
                     e.target.onerror = null
                     e.target.src = getPlaceholder(member.name)
@@ -136,7 +168,7 @@ function CommitteeMember() {
       {/* Modal */}
       {isModalOpen && selectedMember && (
         <div
-          className={`fixed inset-0 bg-white/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-opacity duration-300 ${
+          className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-opacity duration-300 ${
             isModalOpen ? 'opacity-100' : 'opacity-0'
           }`}
           onClick={closeModal}
@@ -153,11 +185,11 @@ function CommitteeMember() {
           >
             {/* Modal Header with Image */}
             <div className="relative">
-              <div className="h-64 bg-gradient-to-br from-green-100 to-green-50">
+              <div className="h-96 bg-gradient-to-br from-green-100 to-green-50 overflow-hidden">
                 <img
                   src={selectedMember.image}
                   alt={selectedMember.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                   onError={(e) => {
                     e.target.onerror = null
                     e.target.src = getPlaceholder(selectedMember.name)
