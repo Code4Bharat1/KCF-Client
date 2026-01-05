@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useState } from 'react'
@@ -6,7 +5,6 @@ import { useRouter } from 'next/navigation'
 import axios from 'axios'
 
 const API_URL = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:5000"
-
 
 function Admin() {
   const [formData, setFormData] = useState({
@@ -25,40 +23,39 @@ function Admin() {
   }
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsLoading(true);
+    e.preventDefault();
+    setIsLoading(true);
 
-  try {
-    const response = await axios.post(
-      `${API_URL}/api/admin/login`,
-      {
-        email: formData.email,
-        password: formData.password,
-      },
-      {
-        withCredentials: true, // REQUIRED for cookie
+    try {
+      const response = await axios.post(
+        `${API_URL}/api/admin/login`,
+        {
+          email: formData.email,
+          password: formData.password,
+        },
+        {
+          withCredentials: true, // REQUIRED for cookie
+        }
+      );
+
+      if (response.data.success) {
+        // alert(response.data.message); // "Login successful"
+        
+        // optional: redirect after login
+        router.push("/admin-dashboard");
       }
-    );
 
-    if (response.data.success) {
-      // alert(response.data.message); // "Login successful"
-      
-      // optional: redirect after login
-      router.push("/admin-dashboard");
+    } catch (error) {
+      console.error("Login error:", error);
+
+      alert(
+        error.response?.data?.message ||
+        "Login failed. Please try again."
+      );
+    } finally {
+      setIsLoading(false);
     }
-
-  } catch (error) {
-    console.error("Login error:", error);
-
-    alert(
-      error.response?.data?.message ||
-      "Login failed. Please try again."
-    );
-  } finally {
-    setIsLoading(false);
-  }
-};
-
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50 flex items-center justify-center px-4 py-12">
@@ -102,7 +99,7 @@ function Admin() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 outline-none"
+                    className="w-full pl-12 pr-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 outline-none"
                     placeholder="admin@example.com"
                   />
                 </div>
@@ -126,7 +123,7 @@ function Admin() {
                     value={formData.password}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 outline-none"
+                    className="w-full pl-12 pr-12 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 outline-none"
                     placeholder="Enter your password"
                   />
                   <button

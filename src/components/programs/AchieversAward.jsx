@@ -187,7 +187,7 @@ function AchieversAward() {
                   value={formData.surname}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   placeholder="Enter surname"
                 />
               </div>
@@ -201,7 +201,7 @@ function AchieversAward() {
                   value={formData.firstName}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   placeholder="Enter first name"
                 />
               </div>
@@ -214,7 +214,7 @@ function AchieversAward() {
                   name="middleName"
                   value={formData.middleName}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   placeholder="Enter middle name"
                 />
               </div>
@@ -233,7 +233,7 @@ function AchieversAward() {
                   onChange={handleInputChange}
                   required
                   pattern="[0-9]{10}"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   placeholder="10-digit mobile number"
                 />
               </div>
@@ -247,7 +247,7 @@ function AchieversAward() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -272,7 +272,7 @@ function AchieversAward() {
                   onChange={handleInputChange}
                   required
                   rows="3"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   placeholder="Enter your current residential address"
                 />
               </div>
@@ -286,7 +286,7 @@ function AchieversAward() {
                   onChange={handleInputChange}
                   required
                   rows="3"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   placeholder="Enter your native/hometown address"
                 />
               </div>
@@ -313,7 +313,7 @@ function AchieversAward() {
                   required
                   pattern="[0-9]{12}"
                   maxLength="12"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   placeholder="Enter 12-digit Aadhaar number"
                 />
               </div>
@@ -395,7 +395,7 @@ function AchieversAward() {
                       value={formData.sscScore}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                       placeholder="e.g., 85% or 425/500"
                     />
                   </div>
@@ -411,7 +411,7 @@ function AchieversAward() {
                       required
                       pattern="[0-9]{4}"
                       maxLength="4"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                       placeholder="YYYY"
                     />
                   </div>
@@ -432,7 +432,7 @@ function AchieversAward() {
                       value={formData.hscScore}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                       placeholder="e.g., 75% or 450/600"
                     />
                   </div>
@@ -448,7 +448,7 @@ function AchieversAward() {
                       required
                       pattern="[0-9]{4}"
                       maxLength="4"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                       placeholder="YYYY"
                     />
                   </div>
@@ -468,7 +468,7 @@ function AchieversAward() {
                       name="graduation"
                       value={formData.graduation}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                       placeholder="e.g., B.Tech, B.Com, BA"
                     />
                   </div>
@@ -483,7 +483,7 @@ function AchieversAward() {
                       onChange={handleInputChange}
                       pattern="[0-9]{4}"
                       maxLength="4"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                       placeholder="YYYY"
                     />
                   </div>
@@ -503,7 +503,7 @@ function AchieversAward() {
                       name="postGraduation"
                       value={formData.postGraduation}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                       placeholder="e.g., M.Tech, MBA, MA"
                     />
                   </div>
@@ -518,7 +518,7 @@ function AchieversAward() {
                       onChange={handleInputChange}
                       pattern="[0-9]{4}"
                       maxLength="4"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                       placeholder="YYYY"
                     />
                   </div>
@@ -543,7 +543,7 @@ function AchieversAward() {
                 value={formData.awardsReceived}
                 onChange={handleInputChange}
                 rows="5"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                 placeholder="Please list all awards, recognitions, and achievements received. Include award name, year, and issuing organization."
               />
               <p className="text-sm text-gray-500 mt-2">
