@@ -38,10 +38,10 @@ function Navbar() {
           <div className="flex items-center space-x-4 group cursor-pointer" onClick={() => handleNavigation('/')}>
             <div className="relative">
               <img 
-                src="/kcf-logo.png" 
+                src="/mylogo.png" 
                 alt="Kokan Community Forum" 
-                className={`object-contain transition-all duration-300 ${
-                  scrolled ? 'h-14 w-14' : 'h-20 w-20'
+                className={`object-cover transition-all duration-300 ${
+                  scrolled ? 'h-30 w-30' : 'h-28 w-28'
                 } group-hover:scale-105`}
               />
             </div>

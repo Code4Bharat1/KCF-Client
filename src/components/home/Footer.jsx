@@ -102,9 +102,9 @@ function Footer() {
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-16 h-16 bg-gradient-to-r rounded-2xl flex items-center justify-center shadow-lg">
                 <img 
-                  src="/kcf-logo.png" 
+                  src="/mylogo.png" 
                   alt="KCF Logo" 
-                  className="w-14 h-14 object-contain"
+                  className="w-20 h-30 object-cover"
                   onError={(e) => {
                     e.target.style.display = 'none'
                     e.target.parentElement.innerHTML = '<span class="text-2xl font-bold text-white">KCF</span>'
