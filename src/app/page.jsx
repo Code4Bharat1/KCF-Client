@@ -10,12 +10,14 @@ import About from '@/components/home/AboutUs'
 import VisionAndMission from '@/components/home/VisionAndMission'
 import OurAchievements from '@/components/home/OurAchievements'
 import FormCompo from '@/components/FormCompo/FormCompo'
+import Video from '@/components/videos/Video'
 
 function page() {
   return (
     <div>
       <Navbar/>
       <Hero/>
+      <Video/>
       <About/>
       <VisionAndMission/>
       <OurAchievements/>
