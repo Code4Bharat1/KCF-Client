@@ -1,13 +1,23 @@
 "use client"
 
 import React from 'react'
+import { useRouter } from 'next/navigation'
 
 function Footer() {
+  const router = useRouter()
+
+  const handleNavigation = (path) => {
+    router.push(path)
+  }
   const quickLinks = [
-    { name: 'About Us', href: '/about' },
+    { name: 'Home', href: '/' },
+    { name: 'Donors', href: '/donors' },
+    { name: 'Volunteers', href: '/volunteers' },
+    { name: 'Committee Members', href: '/committee-members' },
+    { name: 'Supporting Members', href: '/supporting-members' },
     { name: 'Events', href: '/events' },
-    { name: 'Gallery', href: '/gallery' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Support', href: '/support' },
+    { name: 'Contact Us', href: '/#contact' }
   ]
 
   const programs = [
@@ -138,13 +148,13 @@ function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
+                  <button
+                    onClick={() => handleNavigation(link.href)}
                     className="text-gray-600 hover:text-green-600 transition-colors duration-200 flex items-center gap-2 group"
                   >
                     <span className="w-0 group-hover:w-2 h-0.5 bg-green-500 transition-all duration-300"></span>
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>

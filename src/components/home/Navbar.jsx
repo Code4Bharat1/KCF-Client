@@ -327,7 +327,7 @@ function Navbar() {
             </div>
 
             <button 
-              onClick={() => handleNavigation('/#events')} 
+              onClick={() => handleNavigation('/events')} 
               className="w-full text-left block px-4 py-3 text-gray-700 hover:bg-white hover:text-green-600 hover:pl-6 rounded-lg font-medium transition-all duration-200 hover:shadow-sm"
             >
               Events
@@ -348,7 +348,7 @@ function Navbar() {
               Contact Us
             </button>
             <button 
-              onClick={() => handleNavigation('/join-us')}
+              onClick={() => handleNavigation('/#contact')}
               className="w-full mt-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white px-6 py-3 rounded-full font-medium shadow-lg shadow-green-200 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
