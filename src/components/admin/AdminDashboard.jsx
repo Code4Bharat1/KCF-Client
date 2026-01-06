@@ -182,7 +182,7 @@ function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-green-50 pt-32 pb-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-green-50 pt-40 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
