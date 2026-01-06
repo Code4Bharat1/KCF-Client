@@ -94,13 +94,13 @@ function Footer() {
   return (
     <footer className="bg-gradient-to-b from-green-50 to-white border-t border-green-300">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 translate-x-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
 
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-16 h-16 bg-gradient-to-r rounded-2xl flex items-center justify-center shadow-lg">
+              <div className="w-20 h-20 bg-gradient-to-r rounded-2xl flex items-center justify-center shadow-lg">
                 <img 
                   src="/mylogo.png" 
                   alt="KCF Logo" 
