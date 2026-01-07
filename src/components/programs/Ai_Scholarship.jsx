@@ -541,24 +541,6 @@ function Ai_Scholarship() {
                     <option value="other">Other</option>
                   </select>
                 </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Current Status *
-                  </label>
-                  <select
-                    name="currentStatus"
-                    value={formData.currentStatus}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  >
-                    <option value="">Select status</option>
-                    <option value="passed11">Passed 11th</option>
-                    <option value="appearing12">Appearing for 12th</option>
-                  </select>
-                </div>
-
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Stream in 11th *
@@ -571,14 +553,87 @@ function Ai_Scholarship() {
                     className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   >
                     <option value="">Select stream</option>
-                    <option value="pcm">Science - PCM</option>
-                    <option value="pcb">Science - PCB</option>
+                    <option value="arts">Arts</option>
+                    <option value="commerce">Commerce</option>
+                    <option value="science">Science</option>
+                    <option value="Vocational">Vocational</option>
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     11th Standard Overall Percentage *
+                  </label>
+                  <input
+                    type="text"
+                    name="percentage11"
+                    value={formData.percentage11}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="e.g., 85%"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <h1 className="text-s font-medium text-gray-900  pb-2 mt-5 border-b border-gray-200">
+                  📝 12th Details
+                </h1>
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Junior College Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="schoolName"
+                    value={formData.schoolName}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="Enter your school/college name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Board of Education *
+                  </label>
+                  <select
+                    name="board"
+                    value={formData.board}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  >
+                    <option value="">Select board</option>
+                    <option value="state">State Board</option>
+                    <option value="cbse">CBSE</option>
+                    <option value="icse">ICSE</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Stream in 12th *
+                  </label>
+                  <select
+                    name="stream"
+                    value={formData.stream}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  >
+                    <option value="">Select stream</option>
+                    <option value="arts">Arts</option>
+                    <option value="commerce">Commerce</option>
+                    <option value="science">Science</option>
+                    <option value="Vocational">Vocational</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    12th Standard Overall Percentage *
                   </label>
                   <input
                     type="text"
