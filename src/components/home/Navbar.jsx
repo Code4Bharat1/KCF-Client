@@ -62,7 +62,7 @@ function Navbar() {
               <p className="text-[14px] text-red-600 font-semibold tracking-wide mt-0.5 text-center">
                 World Kokani Day
               </p>
-              <p className="text-xs text-gray-500 flex  items-center gap-1 mt-0.5 ">
+              <p className="text-xs text-gray-500 flex justify-center items-center gap-1 mt-0.5 ">
                 <span className="inline-block w-1.5 h-1.5 bg-green-600 rounded-full animate-pulse"></span>
                 Unity
                 <span className="inline-block w-1.5 h-1.5 bg-green-600 rounded-full animate-pulse"></span>
@@ -104,7 +104,7 @@ function Navbar() {
               <div className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-green-100 overflow-visible transition-all duration-300 z-50 ${
                 aboutOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
               }`}>
-                <button 
+                {/* <button 
                   onClick={() => handleNavigation('/donors')} 
                   className="w-full block px-6 py-3 text-left text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-200 group"
                 >
@@ -117,9 +117,9 @@ function Navbar() {
                       <div className="text-xs text-gray-500">Our generous supporters</div>
                     </div>
                   </div>
-                </button>
+                </button> */}
                 <div className="border-t border-gray-100"></div>
-                <button 
+                {/* <button 
                   onClick={() => handleNavigation('/volunteers')} 
                   className="w-full block px-6 py-3 text-left text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-200 group"
                 >
@@ -132,7 +132,7 @@ function Navbar() {
                       <div className="text-xs text-gray-500">Community helpers</div>
                     </div>
                   </div>
-                </button>
+                </button> */}
                 <div className="border-t border-gray-100"></div>
 
 
@@ -190,7 +190,7 @@ function Navbar() {
                     </div>
                   )}
                 </div>
-                <div className="border-t border-gray-100"></div>
+                {/* <div className="border-t border-gray-100"></div>
                 <button 
                   onClick={() => handleNavigation('/events')} 
                   className="w-full block px-6 py-3 text-left text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-200 group"
@@ -204,7 +204,7 @@ function Navbar() {
                       <div className="text-xs text-gray-500">Our community events</div>
                     </div>
                   </div>
-                </button>
+                </button> */}
               </div>
             </div>
 

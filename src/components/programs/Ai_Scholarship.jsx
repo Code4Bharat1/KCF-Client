@@ -7,40 +7,66 @@ const API_URL = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:5000";
 
 function Ai_Scholarship() {
   const initialFormState = {
-    fullName: "",
-    dob: "",
-    gender: "",
-    mobile: "",
-    email: "",
-    address: "",
-    kokanRegion: "",
-    schoolName: "",
-    board: "",
-    currentStatus: "",
-    stream: "",
-    percentage11: "",
-    careerPath: "",
-    motivation: "",
-    onlineCourses: false,
-    codingPractice: false,
-    workshops: false,
-    noneButInterested: false,
-    fatherName: "",
-    fatherOccupation: "",
-    fatherIncome: "",
-    motherName: "",
-    motherOccupation: "",
-    motherOccupationText: "",
-    motherIncome: "",
-    isOrphan: "",
-    firstGraduate: "",
-    counsellingTime: "",
-    counsellingLanguage: "",
-    declaration1: false,
-    declaration2: false,
-    declaration3: false,
-    declaration4: false,
-  };
+  // Personal
+  fullName: "",
+  dob: "",
+  gender: "",
+  mobile: "",
+  email: "",
+  address: "",
+  kokanRegion: "",
+  hafizEQuran: "",
+
+  // 10th
+  tenthSchoolName: "",
+  tenthBoard: "",
+  tenthPercentage: "",
+
+  // 11th
+  eleventhCollegeName: "",
+  eleventhBoard: "",
+  eleventhStream: "",
+  eleventhPercentage: "",
+
+  // 12th
+  twelfthCollegeName: "",
+  twelfthBoard: "",
+  twelfthStream: "",
+  twelfthPercentage: "",
+
+  // Career
+  careerPath: "",
+  motivation: "",
+  onlineCourses: false,
+  codingPractice: false,
+  workshops: false,
+  noneButInterested: false,
+
+  // Family
+  fatherName: "",
+  fatherOccupation: "",
+  fatherOccupationText: "",
+  fatherIncome: "",
+  motherName: "",
+  motherOccupation: "",
+  motherOccupationText: "",
+  motherIncome: "",
+  isOrphan: "",
+  firstGraduate: "",
+
+  // Counselling
+  counsellingTime: "",
+  counsellingLanguage: "",
+  mobileOwner: "",
+  counsellingMobile: "",
+
+  // Declarations
+  declaration1: false,
+  declaration2: false,
+  declaration3: false,
+  declaration4: false,
+};
+
 
   const [formData, setFormData] = useState(initialFormState);
 
@@ -317,678 +343,658 @@ function Ai_Scholarship() {
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-8">
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                📝 Personal Information
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name (as per Aadhaar) *
-                  </label>
-                  <input
-                    type="text"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="Enter your full name"
-                  />
-                </div>
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              📝 Personal Information
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Full Name (as per Aadhaar) *
+                </label>
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder="Enter your full name"
+                />
+              </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Date of Birth *
-                  </label>
-                  <input
-                    type="date"
-                    name="dob"
-                    value={formData.dob}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  />
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Date of Birth *
+                </label>
+                <input
+                  type="date"
+                  name="dob"
+                  value={formData.dob}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                />
+              </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Gender *
-                  </label>
-                  <select
-                    name="gender"
-                    value={formData.gender}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  >
-                    <option value="">Select gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                  </select>
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Gender *
+                </label>
+                <select
+                  name="gender"
+                  value={formData.gender}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                >
+                  <option value="">Select gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Mobile Number (WhatsApp) *
-                  </label>
-                  <input
-                    type="tel"
-                    name="mobile"
-                    value={formData.mobile}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="+91 XXXXX XXXXX"
-                  />
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Mobile Number (WhatsApp) *
+                </label>
+                <input
+                  type="tel"
+                  name="mobile"
+                  value={formData.mobile}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder="+91 XXXXX XXXXX"
+                />
+              </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email ID
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email ID
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder="your.email@example.com"
+                />
+              </div>
 
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Permanent Address (Village / Taluka / District) *
-                  </label>
-                  <textarea
-                    name="address"
-                    value={formData.address}
-                    onChange={handleChange}
-                    required
-                    rows="2"
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="Enter your complete address"
-                  ></textarea>
-                </div>
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Permanent Address (Village / Taluka / District) *
+                </label>
+                <textarea
+                  name="address"
+                  value={formData.address}
+                  onChange={handleChange}
+                  required
+                  rows="2"
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder="Enter your complete address"
+                ></textarea>
+              </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Are you from Kokan Region? *
-                  </label>
-                  <select
-                    name="kokanRegion"
-                    value={formData.kokanRegion}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  >
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Are you Hafiz e Quran? *
-                  </label>
-                  <select
-                    name="kokanRegion"
-                    value={formData.kokanRegion}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  >
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Are you from Kokan Region? *
+                </label>
+                <select
+                  name="kokanRegion"
+                  value={formData.kokanRegion}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                >
+                  <option value="">Select</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Are you Hafiz e Quran? *
+                </label>
+                <select
+                  name="hafizEQuran"
+                  value={formData.hafizEQuran}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                >
+                  <option value="">Select</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 pb-2 border-b border-gray-200">
+              🎓 Educational Details
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <h1 className="text-s font-medium text-gray-900 pb-2 mt-5 border-b border-gray-200">
+                📝 10th Details
+              </h1>
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  School Name *
+                </label>
+                <input
+                  type="text"
+                  name="tenthSchoolName"
+                  value={formData.tenthSchoolName}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder="Enter your school/college name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Board of Education *
+                </label>
+                <select
+                  name="tenthBoard"
+                  value={formData.tenthBoard}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                >
+                  <option value="">Select board</option>
+                  <option value="state">State Board</option>
+                  <option value="cbse">CBSE</option>
+                  <option value="icse">ICSE</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  10th Standard Overall Percentage *
+                </label>
+                <input
+                  type="text"
+                  name="tenthPercentage"
+                  value={formData.tenthPercentage}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder="e.g., 85%"
+                />
               </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 pb-2 border-b border-gray-200">
-                🎓 Educational Details
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <h1 className="text-s font-medium text-gray-900  pb-2 mt-5 border-b border-gray-200">
-                  📝 10th Details
-                </h1>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    School Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="schoolName"
-                    value={formData.schoolName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="Enter your school/college name"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Board of Education *
-                  </label>
-                  <select
-                    name="board"
-                    value={formData.board}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  >
-                    <option value="">Select board</option>
-                    <option value="state">State Board</option>
-                    <option value="cbse">CBSE</option>
-                    <option value="icse">ICSE</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    10th Standard Overall Percentage *
-                  </label>
-                  <input
-                    type="text"
-                    name="percentage11"
-                    value={formData.percentage11}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="e.g., 85%"
-                  />
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <h1 className="text-s font-medium text-gray-900 pb-2 mt-5 border-b border-gray-200">
+                📝 11th Details
+              </h1>
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Junior College Name *
+                </label>
+                <input
+                  type="text"
+                  name="eleventhCollegeName"
+                  value={formData.eleventhCollegeName}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder="Enter your school/college name"
+                />
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <h1 className="text-s font-medium text-gray-900  pb-2 mt-5 border-b border-gray-200">
-                  📝 11th Details
-                </h1>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Junior College Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="schoolName"
-                    value={formData.schoolName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="Enter your school/college name"
-                  />
-                </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Board of Education *
-                  </label>
-                  <select
-                    name="board"
-                    value={formData.board}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  >
-                    <option value="">Select board</option>
-                    <option value="state">State Board</option>
-                    <option value="cbse">CBSE</option>
-                    <option value="icse">ICSE</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Stream in 11th *
-                  </label>
-                  <select
-                    name="stream"
-                    value={formData.stream}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  >
-                    <option value="">Select stream</option>
-                    <option value="arts">Arts</option>
-                    <option value="commerce">Commerce</option>
-                    <option value="science">Science</option>
-                    <option value="Vocational">Vocational</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    11th Standard Overall Percentage *
-                  </label>
-                  <input
-                    type="text"
-                    name="percentage11"
-                    value={formData.percentage11}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="e.g., 85%"
-                  />
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Board of Education *
+                </label>
+                <select
+                  name="eleventhBoard"
+                  value={formData.eleventhBoard}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                >
+                  <option value="">Select board</option>
+                  <option value="state">State Board</option>
+                  <option value="cbse">CBSE</option>
+                  <option value="icse">ICSE</option>
+                  <option value="other">Other</option>
+                </select>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <h1 className="text-s font-medium text-gray-900  pb-2 mt-5 border-b border-gray-200">
-                  📝 12th Details
-                </h1>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Junior College Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="schoolName"
-                    value={formData.schoolName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="Enter your school/college name"
-                  />
-                </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Board of Education *
-                  </label>
-                  <select
-                    name="board"
-                    value={formData.board}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  >
-                    <option value="">Select board</option>
-                    <option value="state">State Board</option>
-                    <option value="cbse">CBSE</option>
-                    <option value="icse">ICSE</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Stream in 12th *
-                  </label>
-                  <select
-                    name="stream"
-                    value={formData.stream}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  >
-                    <option value="">Select stream</option>
-                    <option value="arts">Arts</option>
-                    <option value="commerce">Commerce</option>
-                    <option value="science">Science</option>
-                    <option value="Vocational">Vocational</option>
-                  </select>
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Stream in 11th *
+                </label>
+                <select
+                  name="eleventhStream"
+                  value={formData.eleventhStream}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                >
+                  <option value="">Select stream</option>
+                  <option value="arts">Arts</option>
+                  <option value="commerce">Commerce</option>
+                  <option value="science">Science</option>
+                  <option value="Vocational">Vocational</option>
+                </select>
+              </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    12th Standard Overall Percentage *
-                  </label>
-                  <input
-                    type="text"
-                    name="percentage11"
-                    value={formData.percentage11}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="e.g., 85%"
-                  />
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  11th Standard Overall Percentage *
+                </label>
+                <input
+                  type="text"
+                  name="eleventhPercentage"
+                  value={formData.eleventhPercentage}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder="e.g., 85%"
+                />
               </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                🎯 Career Interest & Motivation
-              </h3>
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Preferred Career Path *
-                  </label>
-                  <select
-                    name="careerPath"
-                    value={formData.careerPath}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  >
-                    <option value="">Select your preferred path</option>
-                    <option value="ai">
-                      Bachelor in Artificial Intelligence & Machine Learning (3
-                      years)
-                    </option>
-                    <option value="cybersecurity">
-                      Bachelor in Computer Science (3 years)
-                    </option>
-                    <option value="datascience">
-                      Bachelor in Cyber Security (3 years)
-                    </option>
-                  </select>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <h1 className="text-s font-medium text-gray-900 pb-2 mt-5 border-b border-gray-200">
+                📝 12th Details
+              </h1>
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Junior College Name *
+                </label>
+                <input
+                  type="text"
+                  name="twelfthCollegeName"
+                  value={formData.twelfthCollegeName}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder="Enter your school/college name"
+                />
+              </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Why are you interested in this field? (100-150 words) *
-                  </label>
-                  <textarea
-                    name="motivation"
-                    value={formData.motivation}
-                    onChange={handleChange}
-                    required
-                    rows="5"
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="Share your passion, interest, and goals in this field..."
-                  ></textarea>
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Board of Education *
+                </label>
+                <select
+                  name="twelfthBoard"
+                  value={formData.twelfthBoard}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                >
+                  <option value="">Select board</option>
+                  <option value="state">State Board</option>
+                  <option value="cbse">CBSE</option>
+                  <option value="icse">ICSE</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
-                    Have you done any of the following?
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Stream in 12th *
+                </label>
+                <select
+                  name="twelfthStream"
+                  value={formData.twelfthStream}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                >
+                  <option value="">Select stream</option>
+                  <option value="arts">Arts</option>
+                  <option value="commerce">Commerce</option>
+                  <option value="science">Science</option>
+                  <option value="Vocational">Vocational</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  12th Standard Overall Percentage *
+                </label>
+                <input
+                  type="text"
+                  name="twelfthPercentage"
+                  value={formData.twelfthPercentage}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder="e.g., 85%"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              🎯 Career Interest & Motivation
+            </h3>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Preferred Career Path *
+                </label>
+                <select
+                  name="careerPath"
+                  value={formData.careerPath}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                >
+                  <option value="">Select your preferred path</option>
+                  <option value="ai">
+                    Bachelor in Artificial Intelligence & Machine Learning (3
+                    years)
+                  </option>
+                  <option value="cybersecurity">
+                    Bachelor in Computer Science (3 years)
+                  </option>
+                  <option value="datascience">
+                    Bachelor in Cyber Security (3 years)
+                  </option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Why are you interested in this field? (100-150 words) *
+                </label>
+                <textarea
+                  name="motivation"
+                  value={formData.motivation}
+                  onChange={handleChange}
+                  required
+                  rows="5"
+                  className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder="Share your passion, interest, and goals in this field..."
+                ></textarea>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-3">
+                  Have you done any of the following?
+                </label>
+                <div className="space-y-2">
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      name="onlineCourses"
+                      checked={formData.onlineCourses}
+                      onChange={handleChange}
+                      className="rounded"
+                    />
+                    <span className="text-sm text-gray-700">
+                      Online courses (YouTube / Coursera / Udemy)
+                    </span>
                   </label>
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      name="codingPractice"
+                      checked={formData.codingPractice}
+                      onChange={handleChange}
+                      className="rounded"
+                    />
+                    <span className="text-sm text-gray-700">
+                      Coding practice
+                    </span>
+                  </label>
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      name="workshops"
+                      checked={formData.workshops}
+                      onChange={handleChange}
+                      className="rounded"
+                    />
+                    <span className="text-sm text-gray-700">
+                      Workshops / Seminars
+                    </span>
+                  </label>
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      name="noneButInterested"
+                      checked={formData.noneButInterested}
+                      onChange={handleChange}
+                      className="rounded"
+                    />
+                    <span className="text-sm text-gray-700">
+                      None (but highly interested)
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              👨‍👩‍👧‍👦 Family and Financial Information
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Father's Name *
+                </label>
+                <input
+                  type="text"
+                  name="fatherName"
+                  value={formData.fatherName}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                  placeholder="Enter father's name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Father's Occupation *
+                </label>
+
+                {formData.fatherOccupation === "other" ? (
                   <div className="space-y-2">
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        name="onlineCourses"
-                        checked={formData.onlineCourses}
-                        onChange={handleChange}
-                        className="rounded"
-                      />
-                      <span className="text-sm text-gray-700">
-                        Online courses (YouTube / Coursera / Udemy)
-                      </span>
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        name="codingPractice"
-                        checked={formData.codingPractice}
-                        onChange={handleChange}
-                        className="rounded"
-                      />
-                      <span className="text-sm text-gray-700">
-                        Coding practice
-                      </span>
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        name="workshops"
-                        checked={formData.workshops}
-                        onChange={handleChange}
-                        className="rounded"
-                      />
-                      <span className="text-sm text-gray-700">
-                        Workshops / Seminars
-                      </span>
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        name="noneButInterested"
-                        checked={formData.noneButInterested}
-                        onChange={handleChange}
-                        className="rounded"
-                      />
-                      <span className="text-sm text-gray-700">
-                        None (but highly interested)
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
+                    <input
+                      type="text"
+                      name="fatherOccupationText"
+                      value={formData.fatherOccupationText}
+                      onChange={handleChange}
+                      required
+                      placeholder="Please specify occupation"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    />
 
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                👨‍👩‍👧‍👦 Family and Financial Information
-              </h3>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {/* Father's Name */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Father's Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="fatherName"
-                    value={formData.fatherName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                    placeholder="Enter father's name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Father's Occupation *
-                  </label>
-
-                  {formData.fatherOccupation === "other" ? (
-                    <div className="space-y-2">
-                      <input
-                        type="text"
-                        value={formData.fatherOccupationText}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            fatherOccupationText: e.target.value,
-                          })
-                        }
-                        required
-                        placeholder="Please specify occupation"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                      />
-
-                      {/* Dropdown parat yenya sathi */}
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setFormData({
-                            ...formData,
-                            fatherOccupation: "",
-                            fatherOccupationText: "",
-                          })
-                        }
-                        className="text-sm text-green-600 hover:underline"
-                      >
-                        ← Choose from list
-                      </button>
-                    </div>
-                  ) : (
-                    <select
-                      value={formData.fatherOccupation}
-                      onChange={(e) =>
+                    <button
+                      type="button"
+                      onClick={() =>
                         setFormData({
                           ...formData,
-                          fatherOccupation: e.target.value,
+                          fatherOccupation: "",
                           fatherOccupationText: "",
                         })
                       }
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                      className="text-sm text-green-600 hover:underline"
                     >
-                      <option value="">Select occupation</option>
-                      <option value="farmer">Farmer</option>
-                      <option value="labour">Labour</option>
-                      <option value="private">Private Job</option>
-                      <option value="government">Government Job</option>
-                      <option value="business">Business</option>
-                      <option value="self-employed">Self Employed</option>
-                      <option value="unemployed">Unemployed</option>
-                      <option value="other">Other</option>
-                    </select>
-                  )}
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Father's Income *
-                  </label>
+                      ← Choose from list
+                    </button>
+                  </div>
+                ) : (
                   <select
-                    name="fatherIncome"
-                    value={formData.fatherIncome}
+                    name="fatherOccupation"
+                    value={formData.fatherOccupation}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                   >
-                    <option value="">Select income range</option>
-                    <option value="below2">Below ₹2 Lakh</option>
-                    <option value="2-5">₹2–5 Lakh</option>
-                    <option value="5-10">₹5–10 Lakh</option>
-                    <option value="above10">Above ₹10 Lakh</option>
+                    <option value="">Select occupation</option>
+                    <option value="farmer">Farmer</option>
+                    <option value="labour">Labour</option>
+                    <option value="private">Private Job</option>
+                    <option value="government">Government Job</option>
+                    <option value="business">Business</option>
+                    <option value="self-employed">Self Employed</option>
+                    <option value="unemployed">Unemployed</option>
+                    <option value="other">Other</option>
                   </select>
-                </div>
+                )}
+              </div>
 
-                {/* Mother's Name */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Mother's Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="motherName"
-                    value={formData.motherName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                    placeholder="Enter mother's name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Mother's Occupation *
-                  </label>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Father's Income *
+                </label>
+                <select
+                  name="fatherIncome"
+                  value={formData.fatherIncome}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                >
+                  <option value="">Select income range</option>
+                  <option value="below2">Below ₹2 Lakh</option>
+                  <option value="2-5">₹2–5 Lakh</option>
+                  <option value="5-10">₹5–10 Lakh</option>
+                  <option value="above10">Above ₹10 Lakh</option>
+                </select>
+              </div>
 
-                  {formData.motherOccupation === "other" ? (
-                    <div className="space-y-2">
-                      <input
-                        type="text"
-                        value={formData.motherOccupationText}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            motherOccupationText: e.target.value,
-                          })
-                        }
-                        required
-                        placeholder="Please specify occupation"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                      />
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Mother's Name *
+                </label>
+                <input
+                  type="text"
+                  name="motherName"
+                  value={formData.motherName}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                  placeholder="Enter mother's name"
+                />
+              </div>
 
-                      {/* Dropdown parat yenya sathi */}
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setFormData({
-                            ...formData,
-                            motherOccupation: "",
-                            motherOccupationText: "",
-                          })
-                        }
-                        className="text-sm text-green-600 hover:underline"
-                      >
-                        ← Choose from list
-                      </button>
-                    </div>
-                  ) : (
-                    <select
-                      value={formData.motherOccupation}
-                      onChange={(e) =>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Mother's Occupation *
+                </label>
+
+                {formData.motherOccupation === "other" ? (
+                  <div className="space-y-2">
+                    <input
+                      type="text"
+                      name="motherOccupationText"
+                      value={formData.motherOccupationText}
+                      onChange={handleChange}
+                      required
+                      placeholder="Please specify occupation"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    />
+
+                    <button
+                      type="button"
+                      onClick={() =>
                         setFormData({
                           ...formData,
-                          motherOccupation: e.target.value,
+                          motherOccupation: "",
                           motherOccupationText: "",
                         })
                       }
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                      className="text-sm text-green-600 hover:underline"
                     >
-                      <option value="">Select occupation</option>
-                      <option value="housewife">Housewife</option>
-                      <option value="farmer">Farmer</option>
-                      <option value="labour">Labour</option>
-                      <option value="private">Private Job</option>
-                      <option value="government">Government Job</option>
-                      <option value="business">Business</option>
-                      <option value="self-employed">Self Employed</option>
-                      <option value="unemployed">Unemployed</option>
-                      <option value="other">Other</option>
-                    </select>
-                  )}
-                </div>
-
-                {/* Annual Income */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Mother's Income *
-                  </label>
+                      ← Choose from list
+                    </button>
+                  </div>
+                ) : (
                   <select
-                    name="motherIncome"
-                    value={formData.motherIncome}
+                    name="motherOccupation"
+                    value={formData.motherOccupation}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                   >
-                    <option value="">Select income range</option>
-                    <option value="below2">Below ₹2 Lakh</option>
-                    <option value="2-5">₹2–5 Lakh</option>
-                    <option value="5-10">₹5–10 Lakh</option>
-                    <option value="above10">Above ₹10 Lakh</option>
+                    <option value="">Select occupation</option>
+                    <option value="housewife">Housewife</option>
+                    <option value="farmer">Farmer</option>
+                    <option value="labour">Labour</option>
+                    <option value="private">Private Job</option>
+                    <option value="government">Government Job</option>
+                    <option value="business">Business</option>
+                    <option value="self-employed">Self Employed</option>
+                    <option value="unemployed">Unemployed</option>
+                    <option value="other">Other</option>
                   </select>
-                </div>
+                )}
+              </div>
 
-                {/* Orphan Status */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Are you an orphan? *
-                  </label>
-                  <select
-                    name="isOrphan"
-                    value={formData.isOrphan}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  >
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Mother's Income *
+                </label>
+                <select
+                  name="motherIncome"
+                  value={formData.motherIncome}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                >
+                  <option value="">Select income range</option>
+                  <option value="below2">Below ₹2 Lakh</option>
+                  <option value="2-5">₹2–5 Lakh</option>
+                  <option value="5-10">₹5–10 Lakh</option>
+                  <option value="above10">Above ₹10 Lakh</option>
+                </select>
+              </div>
 
-                {/* First Graduate */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    First Graduate in Family? *
-                  </label>
-                  <select
-                    name="firstGraduate"
-                    value={formData.firstGraduate}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                  >
-                    <option value="">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Are you an orphan? *
+                </label>
+                <select
+                  name="isOrphan"
+                  value={formData.isOrphan}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                >
+                  <option value="">Select</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  First Graduate in Family? *
+                </label>
+                <select
+                  name="firstGraduate"
+                  value={formData.firstGraduate}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                >
+                  <option value="">Select</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
               </div>
             </div>
-
+          </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
                 ✅ Commitment & Counselling
@@ -1040,8 +1046,8 @@ function Ai_Scholarship() {
                   </label>
                   <input
                     type="tel"
-                    name="mobile"
-                    value={formData.mobile}
+                    name="counsellingMobile"
+                    value={formData.counsellingMobile}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"

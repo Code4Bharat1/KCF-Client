@@ -164,10 +164,10 @@ function CommitteeMember() {
                   />
                 )}
 
-                {/* Position Badge */}
+                {/* Position Badge
                 <div className="absolute top-3 right-3 bg-green-600 text-white px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg backdrop-blur-sm bg-opacity-95">
                   {member.position}
-                </div>
+                </div> */}
               </div>
 
               {/* Member Info */}
@@ -175,9 +175,9 @@ function CommitteeMember() {
                 <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors line-clamp-2">
                   {member.name}
                 </h3>
-                <p className="text-sm text-green-600 font-semibold mb-2 line-clamp-1">
+                {/* <p className="text-sm text-green-600 font-semibold mb-2 line-clamp-1">
                   {member.qualification}
-                </p>
+                </p> */}
               </div>
             </div>
           ))}
