@@ -29,8 +29,9 @@ function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white shadow-lg py-2' : 'bg-white/95 backdrop-blur-sm shadow-md py-3'
-    }`}>
+  scrolled ? 'bg-white shadow-lg py-1.5' : 'bg-white/95 backdrop-blur-sm shadow-md py-2'
+}`}>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
 
@@ -175,21 +176,18 @@ function Navbar() {
               </div>
             </div>
 
-            <button onClick={() => handleNavigation('/events')} className="relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-200 group">
-              Events
+            {/* AI Scholarship Link */}
+            <button onClick={() => handleNavigation('/ai-scholarship')} className="relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-200 group">
+              Scholarship
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
             </button>
 
-            {/* Support Link */}
-            <button onClick={() => handleNavigation('/support')} className="relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-200 group">
-              Support
+            {/* Achievers Award Link */}
+            <button onClick={() => handleNavigation('/achievers-award')} className="relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-200 group">
+              Achievers Award
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
             </button>
 
-            <button onClick={() => handleNavigation('/#contact')} className="relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-200 group">
-              Contact Us
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
-            </button>
             <button 
               onClick={() => handleNavigation('/#contact')}
               className="ml-4 relative overflow-hidden bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white px-6 py-2.5 rounded-full font-medium shadow-lg shadow-green-200 hover:shadow-xl hover:shadow-green-300 transition-all duration-300 hover:scale-105 active:scale-95"
@@ -326,27 +324,22 @@ function Navbar() {
               </div>
             </div>
 
+            {/* Mobile Scholarship Link */}
             <button 
-              onClick={() => handleNavigation('/events')} 
+              onClick={() => handleNavigation('/ai-scholarship')} 
               className="w-full text-left block px-4 py-3 text-gray-700 hover:bg-white hover:text-green-600 hover:pl-6 rounded-lg font-medium transition-all duration-200 hover:shadow-sm"
             >
-              Events
+              Scholarship
             </button>
 
-            {/* Mobile Support Link */}
+            {/* Mobile Achievers Award Link */}
             <button 
-              onClick={() => handleNavigation('/support')} 
+              onClick={() => handleNavigation('/achievers-award')} 
               className="w-full text-left block px-4 py-3 text-gray-700 hover:bg-white hover:text-green-600 hover:pl-6 rounded-lg font-medium transition-all duration-200 hover:shadow-sm"
             >
-              Support
+              Achievers Award
             </button>
 
-            <button 
-              onClick={() => handleNavigation('/#contact')} 
-              className="w-full text-left block px-4 py-3 text-gray-700 hover:bg-white hover:text-green-600 hover:pl-6 rounded-lg font-medium transition-all duration-200 hover:shadow-sm"
-            >
-              Contact Us
-            </button>
             <button 
               onClick={() => handleNavigation('/#contact')}
               className="w-full mt-3 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white px-6 py-3 rounded-full font-medium shadow-lg shadow-green-200 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"

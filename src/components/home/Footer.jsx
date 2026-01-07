@@ -240,11 +240,17 @@ function Footer() {
               © {currentYear} Kokan Community Forum. All rights reserved.
             </div>
 
+            {/* Managing Director Section */}
+            <div className="text-gray-700 text-sm text-center">
+              <span className="font-semibold">Managing Director:</span>{' '}
+              <span className="text-green-700 font-medium">Awab Habib Fakih</span>
+            </div>
+
             {/* Credit Section */}
             <div className="pt-4 border-t border-green-100 text-center">
               <p className="text-gray-600 text-sm">
-                <span className="italic">"By Kokani. For Kokani. Built with purpose."</span>
-                {' '}— {' '}
+                <span className="italic">Built By Kokani. For Kokani. Built with purpose.</span>
+                {' '}
                 <a 
                   href="https://www.nexcorealliance.com" 
                   target="_blank" 
@@ -258,6 +264,7 @@ function Footer() {
           </div>
         </div>
       </div>
+
     </footer>
   )
 }
