@@ -1,7 +1,9 @@
 "use client"
 
+
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+
 
 function Navbar() {
   const router = useRouter()
@@ -12,6 +14,7 @@ function Navbar() {
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false)
   const [mobileMembersOpen, setMobileMembersOpen] = useState(false)
 
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
@@ -20,6 +23,7 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+
   const handleNavigation = (path) => {
     router.push(path)
     setIsOpen(false)
@@ -27,13 +31,16 @@ function Navbar() {
     setMembersOpen(false)
   }
 
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
   scrolled ? 'bg-white shadow-lg py-1.5' : 'bg-white/95 backdrop-blur-sm shadow-md py-2'
 }`}>
 
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
+
 
           {/* Logo Section */}
           <div className="flex items-center space-x-4 group cursor-pointer" onClick={() => handleNavigation('/')}>
@@ -47,19 +54,25 @@ function Navbar() {
               />
             </div>
 
+
             <div className="hidden lg:block">
               <h1 className="text-xl font-bold bg-gradient-to-r from-green-700 to-green-500 bg-clip-text text-transparent">
                 Kokan Community Forum
               </h1>
-              <p className="text-[11px] text-red-600 font-semibold tracking-wide mt-0.5">
-                World Kokani Day · 6th January
+              <p className="text-[14px] text-red-600 font-semibold tracking-wide mt-0.5 text-center">
+                World Kokani Day
               </p>
-              <p className="text-xs text-gray-500 flex items-center gap-1 mt-0.5">
+              <p className="text-xs text-gray-500 flex  items-center gap-1 mt-0.5 ">
                 <span className="inline-block w-1.5 h-1.5 bg-green-600 rounded-full animate-pulse"></span>
-                Unity · Education · Social Work
+                Unity
+                <span className="inline-block w-1.5 h-1.5 bg-green-600 rounded-full animate-pulse"></span>
+                Education
+                <span className="inline-block w-1.5 h-1.5 bg-green-600 rounded-full animate-pulse"></span>
+                Social Work
               </p>
             </div>
           </div>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
@@ -67,6 +80,7 @@ function Navbar() {
               Home
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
             </button>
+
 
             {/* About Us Dropdown */}
             <div 
@@ -84,6 +98,7 @@ function Navbar() {
                 </svg>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
               </button>
+
 
               {/* Dropdown Menu */}
               <div className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-green-100 overflow-visible transition-all duration-300 z-50 ${
@@ -120,6 +135,7 @@ function Navbar() {
                 </button>
                 <div className="border-t border-gray-100"></div>
 
+
                 {/* Members with Nested Dropdown - Complete Wrapper */}
                 <div 
                   className="relative"
@@ -143,6 +159,7 @@ function Navbar() {
                       </svg>
                     </div>
                   </div>
+
 
                   {/* Nested Members Dropdown */}
                   {membersOpen && (
@@ -173,8 +190,24 @@ function Navbar() {
                     </div>
                   )}
                 </div>
+                <div className="border-t border-gray-100"></div>
+                <button 
+                  onClick={() => handleNavigation('/events')} 
+                  className="w-full block px-6 py-3 text-left text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-200 group"
+                >
+                  <div className="flex items-center gap-3">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <div>
+                      <div className="font-semibold">Events</div>
+                      <div className="text-xs text-gray-500">Our community events</div>
+                    </div>
+                  </div>
+                </button>
               </div>
             </div>
+
 
             {/* AI Scholarship Link */}
             <button onClick={() => handleNavigation('/ai-scholarship')} className="relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-200 group">
@@ -182,24 +215,50 @@ function Navbar() {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
             </button>
 
+
             {/* Achievers Award Link */}
             <button onClick={() => handleNavigation('/achievers-award')} className="relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-200 group">
               Achievers Award
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
             </button>
 
-            <button 
-              onClick={() => handleNavigation('/#contact')}
-              className="ml-4 relative overflow-hidden bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white px-6 py-2.5 rounded-full font-medium shadow-lg shadow-green-200 hover:shadow-xl hover:shadow-green-300 transition-all duration-300 hover:scale-105 active:scale-95"
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-                </svg>
-                Join Us 
-              </span>
+
+            {/* Support Link */}
+            <button onClick={() => handleNavigation('/support')} className="relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-200 group">
+              Support
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
             </button>
+
+
+            <button
+  onClick={() => {
+    const el = document.getElementById("contact");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+  className="ml-4 relative overflow-hidden bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white px-6 py-2.5 rounded-full font-medium shadow-lg shadow-green-200 hover:shadow-xl hover:shadow-green-300 transition-all duration-300 hover:scale-105 active:scale-95"
+>
+  <span className="relative z-10 flex items-center gap-2">
+    <svg
+      className="w-4 h-4"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+      />
+    </svg>
+    Join Us
+  </span>
+</button>
+
           </div>
+
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
@@ -223,6 +282,7 @@ function Navbar() {
         </div>
       </div>
 
+
       {/* Mobile Menu */}
       <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
         isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
@@ -230,11 +290,20 @@ function Navbar() {
         <div className="bg-gradient-to-b from-white to-green-50 border-t border-green-100 shadow-inner">
           <div className="px-4 pt-4 pb-6 space-y-1">
 
+
             <div className="px-4 pb-3 border-b border-green-100">
               <div className="text-sm font-semibold text-gray-800">Kokan Community Forum</div>
-              <div className="text-xs text-red-600 font-semibold">World Kokani Day · 6th January</div>
-              <div className="text-[10px] text-gray-500 mt-0.5">Unity · Education · Social Work</div>
+              <div className="text-xs text-red-600 font-semibold text-center">World Kokani Day</div>
+              <div className="text-[10px] text-gray-500 mt-0.5 flex items-center gap-1">
+                <span className="inline-block w-1 h-1 bg-green-600 rounded-full"></span>
+                Unity
+                <span className="inline-block w-1 h-1 bg-green-600 rounded-full"></span>
+                Education
+                <span className="inline-block w-1 h-1 bg-green-600 rounded-full"></span>
+                Social Work
+              </div>
             </div>
+
 
             <button 
               onClick={() => handleNavigation('/')} 
@@ -242,6 +311,7 @@ function Navbar() {
             >
               Home
             </button>
+
 
             {/* Mobile About Us Dropdown */}
             <div>
@@ -254,6 +324,7 @@ function Navbar() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
+
 
               <div className={`overflow-hidden transition-all duration-300 ${
                 mobileAboutOpen ? 'max-h-96' : 'max-h-0'
@@ -278,6 +349,7 @@ function Navbar() {
                     Volunteers
                   </button>
 
+
                   {/* Mobile Nested Members Dropdown */}
                   <div>
                     <button
@@ -294,6 +366,7 @@ function Navbar() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                       </svg>
                     </button>
+
 
                     <div className={`overflow-hidden transition-all duration-300 ${
                       mobileMembersOpen ? 'max-h-48' : 'max-h-0'
@@ -320,9 +393,19 @@ function Navbar() {
                       </div>
                     </div>
                   </div>
+                  <button 
+                    onClick={() => handleNavigation('/events')} 
+                    className="w-full text-left flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:bg-white hover:text-green-600 rounded-lg transition-all duration-200"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Events
+                  </button>
                 </div>
               </div>
             </div>
+
 
             {/* Mobile Scholarship Link */}
             <button 
@@ -332,6 +415,7 @@ function Navbar() {
               Scholarship
             </button>
 
+
             {/* Mobile Achievers Award Link */}
             <button 
               onClick={() => handleNavigation('/achievers-award')} 
@@ -339,6 +423,16 @@ function Navbar() {
             >
               Achievers Award
             </button>
+
+
+            {/* Mobile Support Link */}
+            <button 
+              onClick={() => handleNavigation('/support')} 
+              className="w-full text-left block px-4 py-3 text-gray-700 hover:bg-white hover:text-green-600 hover:pl-6 rounded-lg font-medium transition-all duration-200 hover:shadow-sm"
+            >
+              Support
+            </button>
+
 
             <button 
               onClick={() => handleNavigation('/#contact')}
@@ -355,5 +449,6 @@ function Navbar() {
     </nav>
   )
 }
+
 
 export default Navbar

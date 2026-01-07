@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 function CommitteeMember() {
-  const [imageErrors, setImageErrors] = useState({})
+  const [imageErrors, setImageErrors] = useState({});
 
   // Sample committee members data
   const committeeMembers = [
@@ -13,7 +13,8 @@ function CommitteeMember() {
       image: "/committeeMember/Mr.Salman.png",
       qualification: "Ph.D. in Computer Science",
       position: "President",
-      description: "Dr. Rajesh Kumar has been leading the Kokan Community Forum for over 5 years. He is dedicated to promoting education and social welfare in the Konkan region. His vision has helped thousands of students achieve their dreams."
+      description:
+        "Dr. Rajesh Kumar has been leading the Kokan Community Forum for over 5 years. He is dedicated to promoting education and social welfare in the Konkan region. His vision has helped thousands of students achieve their dreams.",
     },
     {
       id: 2,
@@ -21,7 +22,8 @@ function CommitteeMember() {
       image: "/committeeMember/Mr.Alimiya.png",
       qualification: "MBA, M.A. in Social Work",
       position: "Vice President",
-      description: "Mrs. Priya Sharma brings extensive experience in community development and has been instrumental in organizing various educational programs and scholarship initiatives for underprivileged students."
+      description:
+        "Mrs. Priya Sharma brings extensive experience in community development and has been instrumental in organizing various educational programs and scholarship initiatives for underprivileged students.",
     },
     {
       id: 3,
@@ -29,7 +31,8 @@ function CommitteeMember() {
       image: "/committeeMember/Mrs.Sufiya.png",
       qualification: "B.Com, CA",
       position: "Treasurer",
-      description: "Mr. Anil Desai manages all financial operations of the forum with transparency and integrity. His financial expertise ensures that every donation reaches the right beneficiaries."
+      description:
+        "Mr. Anil Desai manages all financial operations of the forum with transparency and integrity. His financial expertise ensures that every donation reaches the right beneficiaries.",
     },
     {
       id: 4,
@@ -37,7 +40,8 @@ function CommitteeMember() {
       image: "/committeeMember/Mr.Sajjad.jpeg",
       qualification: "M.D., MBBS",
       position: "Secretary",
-      description: "Dr. Sunita Patil coordinates all activities and maintains records of the forum. She has been actively involved in health awareness campaigns across Konkan villages."
+      description:
+        "Dr. Sunita Patil coordinates all activities and maintains records of the forum. She has been actively involved in health awareness campaigns across Konkan villages.",
     },
     {
       id: 5,
@@ -45,7 +49,8 @@ function CommitteeMember() {
       image: "/committeeMember/Mrs.Musarrat.png",
       qualification: "B.Tech, MBA",
       position: "Joint Secretary",
-      description: "Mr. Vikram Naik assists in organizing events and programs. He specializes in youth engagement and has launched several skill development initiatives."
+      description:
+        "Mr. Vikram Naik assists in organizing events and programs. He specializes in youth engagement and has launched several skill development initiatives.",
     },
     {
       id: 6,
@@ -53,7 +58,8 @@ function CommitteeMember() {
       image: "/committeeMember/Mohammed.jpeg",
       qualification: "M.A. in Education",
       position: "Education Coordinator",
-      description: "Mrs. Anjali Sawant oversees all educational programs and scholarship distributions. Her passion for education has helped shape the future of many young students."
+      description:
+        "Mrs. Anjali Sawant oversees all educational programs and scholarship distributions. Her passion for education has helped shape the future of many young students.",
     },
     {
       id: 7,
@@ -61,7 +67,8 @@ function CommitteeMember() {
       image: "/committeeMember/Dr Nargis Atiq Shaikh(Kardekar).jpeg",
       qualification: "B.Tech, MBA",
       position: "Joint Secretary",
-      description: "Mr. Vikram Naik assists in organizing events and programs. He specializes in youth engagement and has launched several skill development initiatives."
+      description:
+        "Mr. Vikram Naik assists in organizing events and programs. He specializes in youth engagement and has launched several skill development initiatives.",
     },
     {
       id: 8,
@@ -69,7 +76,8 @@ function CommitteeMember() {
       image: "/committeeMember/Umair Anis Ibji.png",
       qualification: "B.Tech, MBA",
       position: "Joint Secretary",
-      description: "Mr. Vikram Naik assists in organizing events and programs. He specializes in youth engagement and has launched several skill development initiatives."
+      description:
+        "Mr. Vikram Naik assists in organizing events and programs. He specializes in youth engagement and has launched several skill development initiatives.",
     },
     {
       id: 9,
@@ -77,7 +85,8 @@ function CommitteeMember() {
       image: "/committeeMember/Hanif Husain Parkar.png",
       qualification: "B.Sc, M.Sc",
       position: "Joint Secretary",
-      description: "Mr. Rahul Sharma supports coordination of internal activities and assists in managing student-focused programs. He is actively involved in planning workshops and community engagement initiatives."
+      description:
+        "Mr. Rahul Sharma supports coordination of internal activities and assists in managing student-focused programs. He is actively involved in planning workshops and community engagement initiatives.",
     },
     {
       id: 10,
@@ -85,30 +94,44 @@ function CommitteeMember() {
       image: "/committeeMember/Atique Kasu.png",
       qualification: "B.Sc, M.Sc",
       position: "Joint Secretary",
-      description: "Mr. Rahul Sharma supports coordination of internal activities and assists in managing student-focused programs. He is actively involved in planning workshops and community engagement initiatives."
-    }
-  ]
+      description:
+        "Mr. Rahul Sharma supports coordination of internal activities and assists in managing student-focused programs. He is actively involved in planning workshops and community engagement initiatives.",
+    },
+  ];
 
   // Generate placeholder with initials
   const getInitials = (name) => {
-    return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2)
-  }
+    return name
+      .split(" ")
+      .map((n) => n[0])
+      .join("")
+      .toUpperCase()
+      .slice(0, 2);
+  };
 
   const handleImageError = (memberId) => {
-    setImageErrors(prev => ({ ...prev, [memberId]: true }))
-  }
+    setImageErrors((prev) => ({ ...prev, [memberId]: true }));
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50 pt-28 sm:pt-32 md:pt-36 py-12 px-4 sm:px-6 lg:px-8">
+    <div
+      className="
+  min-h-screen 
+  bg-gradient-to-br from-green-50 via-white to-green-50
+  pt-50 sm:pt-36 md:pt-45
+  py-12 
+  px-4 sm:px-6 lg:px-8
+"
+    >
       <div className="max-w-7xl mx-auto">
-
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3">
             Our Committee Members
           </h1>
           <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
-            Meet the dedicated individuals working tirelessly for the betterment of our community
+            Meet the dedicated individuals working tirelessly for the betterment
+            of our community
           </p>
         </div>
 
@@ -140,7 +163,7 @@ function CommitteeMember() {
                     loading="lazy"
                   />
                 )}
-                
+
                 {/* Position Badge */}
                 <div className="absolute top-3 right-3 bg-green-600 text-white px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg backdrop-blur-sm bg-opacity-95">
                   {member.position}
@@ -161,7 +184,7 @@ function CommitteeMember() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default CommitteeMember
+export default CommitteeMember;
