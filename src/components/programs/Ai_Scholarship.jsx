@@ -25,7 +25,14 @@ function Ai_Scholarship() {
     codingPractice: false,
     workshops: false,
     noneButInterested: false,
-    familyIncome: "",
+    fatherName: "",
+    fatherOccupation: "",
+    fatherIncome: "",
+    motherName: "",
+    motherOccupation: "",
+    motherOccupationText: "",
+    motherIncome: "",
+    isOrphan: "",
     firstGraduate: "",
     counsellingTime: "",
     counsellingLanguage: "",
@@ -94,7 +101,7 @@ function Ai_Scholarship() {
           </div>
 
           <h1 className="text-4xl font-bold text-center mb-4">
-            AI Scholarship Program 2026
+            Scholarship Program 2026
           </h1>
           <p className="text-center text-green-50 text-lg mb-6">
             ₹10 Lakh Scholarship Fund for Kokani Students
@@ -114,11 +121,14 @@ function Ai_Scholarship() {
               <div className="text-sm text-green-50">Required</div>
             </div>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* SMALL BOX */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 w-full md:col-span-1">
+              <h3 className="font-semibold text-lg mb-3">
+                🎯 Selection Parameters:
+              </h3>
 
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-            <h3 className="font-semibold text-lg mb-3">🎯 What You Get:</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 mt-2">
                 <svg
                   className="w-5 h-5 flex-shrink-0"
                   fill="none"
@@ -132,9 +142,25 @@ function Ai_Scholarship() {
                     d="M5 13l4 4L19 7"
                   />
                 </svg>
-                <span className="text-sm">₹10,000 Scholarship</span>
+                <span className="text-sm">Academic performance: 15%</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 mt-2">
+                <svg
+                  className="w-5 h-5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                <span className="text-sm">Financial Need: 15%</span>
+              </div>
+              <div className="flex items-center gap-2 mt-2">
                 <svg
                   className="w-5 h-5 flex-shrink-0"
                   fill="none"
@@ -149,10 +175,10 @@ function Ai_Scholarship() {
                   />
                 </svg>
                 <span className="text-sm">
-                  AI, Cyber Security, Data Science
+                  Extracurricular activities and Community Service: 20%
                 </span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 mt-2">
                 <svg
                   className="w-5 h-5 flex-shrink-0"
                   fill="none"
@@ -166,57 +192,120 @@ function Ai_Scholarship() {
                     d="M5 13l4 4L19 7"
                   />
                 </svg>
-                <span className="text-sm">No Entrance Exam</span>
+                <span className="text-sm">One-on-One Zoom Interview: 50%</span>
               </div>
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <span className="text-sm">
-                  Industry Partner: Nexcore Alliance
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <span className="text-sm">One-to-One Counselling</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <span className="text-sm">Direct Admission Opportunity</span>
+            </div>
+
+            {/* LONG BOX */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 w-full md:col-span-2">
+              <h3 className="font-semibold text-lg mb-3">🎯 What You Get:</h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="flex items-center gap-2">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-sm">₹10,000 Scholarship</span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-sm">
+                    Bachelor of AIML, Computer Science & Cyber Security
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-sm">No Entrance Exam</span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-sm">
+                    Nexcore Institute of Technology
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-sm">One-to-One Counselling</span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span className="text-sm">Direct Admission Opportunity</span>
+                </div>
               </div>
             </div>
           </div>
@@ -276,7 +365,6 @@ function Ai_Scholarship() {
                     <option value="">Select gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
-                    <option value="other">Other</option>
                   </select>
                 </div>
 
@@ -297,14 +385,13 @@ function Ai_Scholarship() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email ID *
+                    Email ID
                   </label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    required
                     className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="your.email@example.com"
                   />
@@ -341,17 +428,89 @@ function Ai_Scholarship() {
                     <option value="no">No</option>
                   </select>
                 </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Are you Hafiz e Quran? *
+                  </label>
+                  <select
+                    name="kokanRegion"
+                    value={formData.kokanRegion}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  >
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
               </div>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+              <h3 className="text-lg font-semibold text-gray-900 pb-2 border-b border-gray-200">
                 🎓 Educational Details
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <h1 className="text-s font-medium text-gray-900  pb-2 mt-5 border-b border-gray-200">
+                  📝 10th Details
+                </h1>
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    School / Junior College Name *
+                    School Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="schoolName"
+                    value={formData.schoolName}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="Enter your school/college name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Board of Education *
+                  </label>
+                  <select
+                    name="board"
+                    value={formData.board}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  >
+                    <option value="">Select board</option>
+                    <option value="state">State Board</option>
+                    <option value="cbse">CBSE</option>
+                    <option value="icse">ICSE</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    10th Standard Overall Percentage *
+                  </label>
+                  <input
+                    type="text"
+                    name="percentage11"
+                    value={formData.percentage11}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="e.g., 85%"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <h1 className="text-s font-medium text-gray-900  pb-2 mt-5 border-b border-gray-200">
+                  📝 11th Details
+                </h1>
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Junior College Name *
                   </label>
                   <input
                     type="text"
@@ -451,9 +610,16 @@ function Ai_Scholarship() {
                     className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   >
                     <option value="">Select your preferred path</option>
-                    <option value="ai">Artificial Intelligence</option>
-                    <option value="cybersecurity">Cyber Security</option>
-                    <option value="datascience">Data Science</option>
+                    <option value="ai">
+                      Bachelor in Artificial Intelligence & Machine Learning (3
+                      years)
+                    </option>
+                    <option value="cybersecurity">
+                      Bachelor in Computer Science (3 years)
+                    </option>
+                    <option value="datascience">
+                      Bachelor in Cyber Security (3 years)
+                    </option>
                   </select>
                 </div>
 
@@ -532,28 +698,223 @@ function Ai_Scholarship() {
 
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                👨‍👩‍👧‍👦 Family Background
+                👨‍👩‍👧‍👦 Family and Financial Information
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Father's Name */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Annual Family Income *
+                    Father's Name *
                   </label>
-                  <select
-                    name="familyIncome"
-                    value={formData.familyIncome}
+                  <input
+                    type="text"
+                    name="fatherName"
+                    value={formData.fatherName}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    placeholder="Enter father's name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Father's Occupation *
+                  </label>
+
+                  {formData.fatherOccupation === "other" ? (
+                    <div className="space-y-2">
+                      <input
+                        type="text"
+                        value={formData.fatherOccupationText}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            fatherOccupationText: e.target.value,
+                          })
+                        }
+                        required
+                        placeholder="Please specify occupation"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                      />
+
+                      {/* Dropdown parat yenya sathi */}
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setFormData({
+                            ...formData,
+                            fatherOccupation: "",
+                            fatherOccupationText: "",
+                          })
+                        }
+                        className="text-sm text-green-600 hover:underline"
+                      >
+                        ← Choose from list
+                      </button>
+                    </div>
+                  ) : (
+                    <select
+                      value={formData.fatherOccupation}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          fatherOccupation: e.target.value,
+                          fatherOccupationText: "",
+                        })
+                      }
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    >
+                      <option value="">Select occupation</option>
+                      <option value="farmer">Farmer</option>
+                      <option value="labour">Labour</option>
+                      <option value="private">Private Job</option>
+                      <option value="government">Government Job</option>
+                      <option value="business">Business</option>
+                      <option value="self-employed">Self Employed</option>
+                      <option value="unemployed">Unemployed</option>
+                      <option value="other">Other</option>
+                    </select>
+                  )}
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Father's Income *
+                  </label>
+                  <select
+                    name="fatherIncome"
+                    value={formData.fatherIncome}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                   >
                     <option value="">Select income range</option>
                     <option value="below2">Below ₹2 Lakh</option>
-                    <option value="2-5">₹2-5 Lakh</option>
-                    <option value="5-10">₹5-10 Lakh</option>
+                    <option value="2-5">₹2–5 Lakh</option>
+                    <option value="5-10">₹5–10 Lakh</option>
                     <option value="above10">Above ₹10 Lakh</option>
                   </select>
                 </div>
 
+                {/* Mother's Name */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Mother's Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="motherName"
+                    value={formData.motherName}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    placeholder="Enter mother's name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Mother's Occupation *
+                  </label>
+
+                  {formData.motherOccupation === "other" ? (
+                    <div className="space-y-2">
+                      <input
+                        type="text"
+                        value={formData.motherOccupationText}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            motherOccupationText: e.target.value,
+                          })
+                        }
+                        required
+                        placeholder="Please specify occupation"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                      />
+
+                      {/* Dropdown parat yenya sathi */}
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setFormData({
+                            ...formData,
+                            motherOccupation: "",
+                            motherOccupationText: "",
+                          })
+                        }
+                        className="text-sm text-green-600 hover:underline"
+                      >
+                        ← Choose from list
+                      </button>
+                    </div>
+                  ) : (
+                    <select
+                      value={formData.motherOccupation}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          motherOccupation: e.target.value,
+                          motherOccupationText: "",
+                        })
+                      }
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    >
+                      <option value="">Select occupation</option>
+                      <option value="housewife">Housewife</option>
+                      <option value="farmer">Farmer</option>
+                      <option value="labour">Labour</option>
+                      <option value="private">Private Job</option>
+                      <option value="government">Government Job</option>
+                      <option value="business">Business</option>
+                      <option value="self-employed">Self Employed</option>
+                      <option value="unemployed">Unemployed</option>
+                      <option value="other">Other</option>
+                    </select>
+                  )}
+                </div>
+
+                {/* Annual Income */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Mother's Income *
+                  </label>
+                  <select
+                    name="motherIncome"
+                    value={formData.motherIncome}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                  >
+                    <option value="">Select income range</option>
+                    <option value="below2">Below ₹2 Lakh</option>
+                    <option value="2-5">₹2–5 Lakh</option>
+                    <option value="5-10">₹5–10 Lakh</option>
+                    <option value="above10">Above ₹10 Lakh</option>
+                  </select>
+                </div>
+
+                {/* Orphan Status */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Are you an orphan? *
+                  </label>
+                  <select
+                    name="isOrphan"
+                    value={formData.isOrphan}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                  >
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+
+                {/* First Graduate */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     First Graduate in Family? *
@@ -563,7 +924,7 @@ function Ai_Scholarship() {
                     value={formData.firstGraduate}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                   >
                     <option value="">Select</option>
                     <option value="yes">Yes</option>
@@ -577,7 +938,7 @@ function Ai_Scholarship() {
               <h3 className="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
                 ✅ Commitment & Counselling
               </h3>
-              <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Preferred Time for Counselling Call *
@@ -590,9 +951,12 @@ function Ai_Scholarship() {
                     className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   >
                     <option value="">Select time slot</option>
-                    <option value="morning">Morning (9 AM - 12 PM)</option>
-                    <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
-                    <option value="evening">Evening (4 PM - 8 PM)</option>
+                    <option value="morning">9AM - 10AM</option>
+                    <option value="afternoon">10AM - 11AM</option>
+                    <option value="evening">11AM - 12PM</option>
+                    <option value="morning">2PM - 3PM</option>
+                    <option value="afternoon">3PM - 4PM</option>
+                    <option value="evening">4PM - 5PM</option>
                   </select>
                 </div>
 
@@ -611,9 +975,50 @@ function Ai_Scholarship() {
                     <option value="english">English</option>
                     <option value="hindi">Hindi</option>
                     <option value="marathi">Marathi</option>
+                    <option value="kokani">Kokani</option>
+                    <option value="urdu">Urdu</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Mobile Number for Counselling *
+                  </label>
+                  <input
+                    type="tel"
+                    name="mobile"
+                    value={formData.mobile}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    placeholder="+91 XXXXX XXXXX"
+                  />
+                </div>
+
+                {/* Whose number */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Whose number is this? *
+                  </label>
+                  <select
+                    name="mobileOwner"
+                    value={formData.mobileOwner}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                  >
+                    <option value="">Select</option>
+                    <option value="self">Self</option>
+                    <option value="father">Father</option>
+                    <option value="mother">Mother</option>
+                    <option value="sibling">Sibling</option>
+                    <option value="guardian">Guardian</option>
                   </select>
                 </div>
               </div>
+              <span className="block mt-4 text-[14px] text-red-500 font-semibold">
+                * ALL ACADEMIC RECORDS WHICH ARE SUBMITTED WILL BE VERIFIED WITH
+                DOCUMENTS DURING ZOOM MEEETING
+              </span>
             </div>
 
             <div className="bg-green-50 border-2 border-green-200 rounded-xl p-6">
@@ -698,9 +1103,12 @@ function Ai_Scholarship() {
         <div className="mt-8 text-center text-gray-600">
           <p className="text-sm">
             For any queries, contact us at:{" "}
-            <span className="font-semibold text-green-600">
+            <a
+              href="mailto:kokancommunityforumWKD@gmail.comg"
+              className="text-gray-600 hover:underline text-sm"
+            >
               kokancommunityforumWKD@gmail.com
-            </span>
+            </a>
           </p>
           <p className="text-xs mt-2">
             Powered by{" "}

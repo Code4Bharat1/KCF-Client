@@ -51,7 +51,7 @@ function FormCompo() {
                   <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-700 text-sm">AI, Cyber Security & Data Science courses</span>
+                  <span className="text-gray-700 text-sm">Bachelor in Artificial Intelligence, Bachelor in Computer Science, Bachelor in Cyber Security</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,13 +69,15 @@ function FormCompo() {
                   <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-700 text-sm">Industry partner: Nexcore Alliance</span>
+                  <span className="text-gray-700 text-sm">Industry partner: </span> 
+                    <a href="https://www.nexcorealliance.com/" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-700 text-sm hover:underline">Nexcore Institute of Technology</a>
                 </div>
                 <div className="flex items-start gap-2">
                   <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-700 text-sm">For students currently in 11th grade</span>
+                  <span className="text-gray-700 text-sm">For students currently in 12th grade(Arts, Commerce, Science)</span>
                 </div>
               </div>
 
