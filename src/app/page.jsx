@@ -21,7 +21,7 @@ function page() {
       <About/>
       <VisionAndMission/>
       <OurAchievements/>
-      <FormCompo/>
+      {/* <FormCompo/> */}
       {/* <CommitteMember/>
       <SupportingMembers/> */}
       <Contact/>

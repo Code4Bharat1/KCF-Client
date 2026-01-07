@@ -67,11 +67,10 @@ function Volunteers() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50 pt-43 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50 pt-43 py-12 px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto relative">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 blur-sm pointer-events-none select-none">
           <h1 className="text-4xl font-bold text-gray-900 mb-3">
             Our Dedicated Volunteers
           </h1>
@@ -80,8 +79,8 @@ function Volunteers() {
           </p>
         </div>
 
-        {/* Volunteers Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Volunteers Grid - Blurred */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 blur-sm pointer-events-none select-none">
           {volunteers.map((volunteer) => (
             <div
               key={volunteer.id}
@@ -117,8 +116,8 @@ function Volunteers() {
           ))}
         </div>
 
-        {/* Thank You Message */}
-        <div className="mt-16 text-center bg-white rounded-2xl shadow-lg border border-green-100 p-8">
+        {/* Thank You Message - Blurred */}
+        <div className="mt-16 text-center bg-white rounded-2xl shadow-lg border border-green-100 p-8 blur-sm pointer-events-none select-none">
           <svg className="w-16 h-16 mx-auto text-green-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
@@ -128,6 +127,36 @@ function Volunteers() {
           <p className="text-gray-600 max-w-2xl mx-auto">
             Become part of our dedicated team and help make a positive impact in the Kokan community. Your time and skills can make a real difference!
           </p>
+        </div>
+
+        {/* Coming Soon Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-12 text-center max-w-2xl mx-4 border-2 border-green-200">
+            {/* Icon */}
+            <div className="mb-6">
+              <svg className="w-24 h-24 mx-auto text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+
+            {/* Coming Soon Text */}
+            <h2 className="text-5xl font-bold text-gray-900 mb-4">
+              Coming Soon
+            </h2>
+            <p className="text-xl text-gray-700 mb-6">
+              We're currently updating our volunteer profiles
+            </p>
+            <p className="text-gray-600 mb-8 max-w-xl mx-auto">
+              Our dedicated volunteer team page is being refreshed with new information. Check back soon to meet the amazing people making a difference in our community.
+            </p>
+
+            {/* Decorative Elements */}
+            <div className="flex items-center justify-center gap-2 text-green-600">
+              <div className="w-2 h-2 bg-green-600 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+              <div className="w-2 h-2 bg-green-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+              <div className="w-2 h-2 bg-green-600 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
