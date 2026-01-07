@@ -549,150 +549,200 @@ function AdminDashboard() {
                 )}
 
                 {selectedApplicant.type === 'scholarship' && (
-                  <div className="space-y-6">
-                    
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
-                        <span className="w-1 h-6 bg-blue-600 rounded"></span>
-                        Personal Information
-                      </h3>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-lg">
-                        <div>
-                          <p className="text-xs font-semibold text-gray-500 mb-1">Email</p>
-                          <p className="text-sm text-gray-800 break-all">{selectedApplicant.email}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold text-gray-500 mb-1">Mobile</p>
-                          <p className="text-sm text-gray-800">{selectedApplicant.mobile}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold text-gray-500 mb-1">Date of Birth</p>
-                          <p className="text-sm text-gray-800">{formatDate(selectedApplicant.dob)}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold text-gray-500 mb-1">Gender</p>
-                          <p className="text-sm text-gray-800 capitalize">{selectedApplicant.gender}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold text-gray-500 mb-1">Address</p>
-                          <p className="text-sm text-gray-800">{selectedApplicant.address}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold text-gray-500 mb-1">From Kokan Region</p>
-                          <p className="text-sm text-gray-800 capitalize">{selectedApplicant.kokanRegion}</p>
-                        </div>
-                      </div>
-                    </div>
+  <div className="space-y-6">
 
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
-                        <span className="w-1 h-6 bg-indigo-600 rounded"></span>
-                        Academic Details
-                      </h3>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-blue-50 p-4 rounded-lg">
-                        <div>
-                          <p className="text-xs font-semibold text-gray-600 mb-1">School Name</p>
-                          <p className="text-sm text-gray-800">{selectedApplicant.schoolName}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold text-gray-600 mb-1">Board</p>
-                          <p className="text-sm text-gray-800 uppercase">{selectedApplicant.board}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold text-gray-600 mb-1">Stream</p>
-                          <p className="text-sm text-gray-800 uppercase">{selectedApplicant.stream}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold text-gray-600 mb-1">11th Percentage</p>
-                          <p className="text-sm text-gray-800">{selectedApplicant.percentage11}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold text-gray-600 mb-1">Current Status</p>
-                          <p className="text-sm text-gray-800">
-                            {selectedApplicant.currentStatus === 'passed11' ? 'Passed 11th' : 'Appearing for 12th'}
-                          </p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold text-gray-600 mb-1">Career Path</p>
-                          <p className="text-sm text-gray-800 capitalize">
-                            {selectedApplicant.careerPath === 'ai' ? 'Artificial Intelligence' : 
-                             selectedApplicant.careerPath === 'datascience' ? 'Data Science' : 'Cybersecurity'}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+    {/* ================= PERSONAL INFO ================= */}
+    <div>
+      <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+        <span className="w-1 h-6 bg-blue-600 rounded"></span>
+        Personal Information
+      </h3>
 
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
-                        <span className="w-1 h-6 bg-green-600 rounded"></span>
-                        Background Activities
-                      </h3>
-                      <div className="flex flex-wrap gap-2">
-                        {selectedApplicant.onlineCourses && (
-                          <span className="px-3 py-1.5 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">Online Courses</span>
-                        )}
-                        {selectedApplicant.codingPractice && (
-                          <span className="px-3 py-1.5 bg-green-100 text-green-800 text-sm rounded-full font-medium">Coding Practice</span>
-                        )}
-                        {selectedApplicant.workshops && (
-                          <span className="px-3 py-1.5 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">Workshops</span>
-                        )}
-                        {selectedApplicant.noneButInterested && (
-                          <span className="px-3 py-1.5 bg-orange-100 text-orange-800 text-sm rounded-full font-medium">Interested to Learn</span>
-                        )}
-                      </div>
-                    </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-lg">
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">Full Name</p>
+          <p className="text-sm text-gray-800">{selectedApplicant.fullName}</p>
+        </div>
 
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
-                        <span className="w-1 h-6 bg-purple-600 rounded"></span>
-                        Family Background
-                      </h3>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-purple-50 p-4 rounded-lg">
-                        <div>
-                          <p className="text-xs font-semibold text-gray-600 mb-1">Family Income</p>
-                          <p className="text-sm text-gray-800">
-                            {selectedApplicant.familyIncome === 'below2' ? 'Below ₹2 Lakhs' :
-                             selectedApplicant.familyIncome === '2-5' ? '₹2-5 Lakhs' :
-                             selectedApplicant.familyIncome === '5-10' ? '₹5-10 Lakhs' : 'Above ₹10 Lakhs'}
-                          </p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold text-gray-600 mb-1">First Generation Graduate</p>
-                          <p className="text-sm text-gray-800 capitalize">{selectedApplicant.firstGraduate}</p>
-                        </div>
-                      </div>
-                    </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">Email</p>
+          <p className="text-sm text-gray-800 break-all">{selectedApplicant.email}</p>
+        </div>
 
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
-                        <span className="w-1 h-6 bg-pink-600 rounded"></span>
-                        Counselling Preferences
-                      </h3>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-pink-50 p-4 rounded-lg">
-                        <div>
-                          <p className="text-xs font-semibold text-gray-600 mb-1">Preferred Time</p>
-                          <p className="text-sm text-gray-800 capitalize">{selectedApplicant.counsellingTime}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold text-gray-600 mb-1">Preferred Language</p>
-                          <p className="text-sm text-gray-800 capitalize">{selectedApplicant.counsellingLanguage}</p>
-                        </div>
-                      </div>
-                    </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">Mobile</p>
+          <p className="text-sm text-gray-800">{selectedApplicant.mobile}</p>
+        </div>
 
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
-                        <span className="w-1 h-6 bg-yellow-600 rounded"></span>
-                        Motivation
-                      </h3>
-                      <div className="bg-yellow-50 p-4 rounded-lg">
-                        <p className="text-sm text-gray-800 leading-relaxed">{selectedApplicant.motivation}</p>
-                      </div>
-                    </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">Date of Birth</p>
+          <p className="text-sm text-gray-800">{formatDate(selectedApplicant.dob)}</p>
+        </div>
 
-                  </div>
-                )}
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">Gender</p>
+          <p className="text-sm text-gray-800 capitalize">{selectedApplicant.gender}</p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">Kokan Region</p>
+          <p className="text-sm text-gray-800 capitalize">{selectedApplicant.kokanRegion}</p>
+        </div>
+
+        <div className="sm:col-span-2">
+          <p className="text-xs font-semibold text-gray-500 mb-1">Address</p>
+          <p className="text-sm text-gray-800">{selectedApplicant.address}</p>
+        </div>
+      </div>
+    </div>
+
+    {/* ================= ACADEMIC DETAILS ================= */}
+    <div>
+      <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+        <span className="w-1 h-6 bg-indigo-600 rounded"></span>
+        Academic Details
+      </h3>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-blue-50 p-4 rounded-lg">
+
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">10th School</p>
+          <p className="text-sm text-gray-800">{selectedApplicant.tenthSchoolName}</p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">10th Board</p>
+          <p className="text-sm text-gray-800 uppercase">{selectedApplicant.tenthBoard}</p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">10th Percentage</p>
+          <p className="text-sm text-gray-800">{selectedApplicant.tenthPercentage}</p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">11th College</p>
+          <p className="text-sm text-gray-800">{selectedApplicant.eleventhCollegeName}</p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">11th Stream</p>
+          <p className="text-sm text-gray-800">{selectedApplicant.eleventhStream}</p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">11th Percentage</p>
+          <p className="text-sm text-gray-800">{selectedApplicant.eleventhPercentage}</p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">12th College</p>
+          <p className="text-sm text-gray-800">{selectedApplicant.twelfthCollegeName}</p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">12th Stream</p>
+          <p className="text-sm text-gray-800">{selectedApplicant.twelfthStream}</p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">12th Percentage</p>
+          <p className="text-sm text-gray-800">{selectedApplicant.twelfthPercentage}</p>
+        </div>
+
+        <div className="sm:col-span-2">
+          <p className="text-xs font-semibold text-gray-600 mb-1">Career Path</p>
+          <p className="text-sm text-gray-800 capitalize">{selectedApplicant.careerPath}</p>
+        </div>
+
+      </div>
+    </div>
+
+    {/* ================= ACTIVITIES ================= */}
+    <div>
+      <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+        <span className="w-1 h-6 bg-green-600 rounded"></span>
+        Background Activities
+      </h3>
+
+      <div className="flex flex-wrap gap-2">
+        {selectedApplicant.onlineCourses && <span className="px-3 py-1.5 bg-blue-100 text-blue-800 rounded-full text-sm">Online Courses</span>}
+        {selectedApplicant.codingPractice && <span className="px-3 py-1.5 bg-green-100 text-green-800 rounded-full text-sm">Coding Practice</span>}
+        {selectedApplicant.workshops && <span className="px-3 py-1.5 bg-purple-100 text-purple-800 rounded-full text-sm">Workshops</span>}
+        {selectedApplicant.noneButInterested && <span className="px-3 py-1.5 bg-orange-100 text-orange-800 rounded-full text-sm">Interested to Learn</span>}
+      </div>
+    </div>
+
+    {/* ================= FAMILY ================= */}
+    <div>
+      <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+        <span className="w-1 h-6 bg-purple-600 rounded"></span>
+        Family Background
+      </h3>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-purple-50 p-4 rounded-lg">
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">Father Income</p>
+          <p className="text-sm text-gray-800">{selectedApplicant.fatherIncome}</p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">Mother Income</p>
+          <p className="text-sm text-gray-800">{selectedApplicant.motherIncome}</p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">First Graduate</p>
+          <p className="text-sm text-gray-800 capitalize">{selectedApplicant.firstGraduate}</p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">Orphan</p>
+          <p className="text-sm text-gray-800 capitalize">{selectedApplicant.isOrphan}</p>
+        </div>
+      </div>
+    </div>
+
+    {/* ================= COUNSELLING ================= */}
+    <div>
+      <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+        <span className="w-1 h-6 bg-pink-600 rounded"></span>
+        Counselling Preferences
+      </h3>
+
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-pink-50 p-4 rounded-lg">
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">Time</p>
+          <p className="text-sm text-gray-800 capitalize">{selectedApplicant.counsellingTime}</p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">Language</p>
+          <p className="text-sm text-gray-800 capitalize">{selectedApplicant.counsellingLanguage}</p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-gray-600 mb-1">Mobile Owner</p>
+          <p className="text-sm text-gray-800 capitalize">{selectedApplicant.mobileOwner}</p>
+        </div>
+      </div>
+    </div>
+
+    {/* ================= MOTIVATION ================= */}
+    <div>
+      <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+        <span className="w-1 h-6 bg-yellow-600 rounded"></span>
+        Motivation
+      </h3>
+
+      <div className="bg-yellow-50 p-4 rounded-lg">
+        <p className="text-sm text-gray-800 leading-relaxed">{selectedApplicant.motivation}</p>
+      </div>
+    </div>
+
+  </div>
+)}
+
 
               </div>
 
