@@ -70,7 +70,8 @@ function FormCompo() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-gray-700 text-sm">Industry partner: </span> 
-                    <a href="https://www.nexcorealliance.com/" target="_blank" rel="noopener noreferrer" 
+                    <a href="https://www.nexcorealliance.com/
+                    " target="_blank" rel="noopener noreferrer" 
                     className="text-gray-700 text-sm hover:underline">Nexcore Institute of Technology</a>
                 </div>
                 <div className="flex items-start gap-2">
