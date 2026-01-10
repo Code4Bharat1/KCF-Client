@@ -478,7 +478,11 @@ function Ai_Scholarship() {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <h1 className="text-s font-semibold text-gray-900 pb-2 mt-5 border-b border-gray-200">
-                  📝 10th Details
+                  📝 10
+                  <span className="text-[10px] relative -top-[7px] ml-[1px] mr-[4px]">
+                    th
+                  </span>
+                  Details
                 </h1>
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -516,7 +520,11 @@ function Ai_Scholarship() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    10th Standard Overall Percentage *
+                    📝 10
+                    <span className="text-[10px] relative -top-[7px] ml-[1px] mr-[4px]">
+                      th
+                    </span>
+                    Details Standard Overall Percentage *
                   </label>
                   <input
                     type="text"
@@ -532,7 +540,11 @@ function Ai_Scholarship() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <h1 className="text-s font-semibold text-gray-900 pb-2 mt-5 border-b border-gray-200">
-                  📝 11th Details
+                  📝 11
+                  <span className="text-[10px] relative -top-[7px] ml-[0.5px] mr-[4px]">
+                    th
+                  </span>
+                  Details
                 </h1>
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -570,7 +582,11 @@ function Ai_Scholarship() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Stream in 11th *
+                    Stream in 11
+                    <span className="text-[10px] relative -top-[7px] ml-[0.5px]">
+                      th
+                    </span>{" "}
+                    *
                   </label>
                   <select
                     name="eleventhStream"
@@ -589,7 +605,9 @@ function Ai_Scholarship() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    11th Standard Overall Percentage *
+                    11
+                    <span className="text-[10px] relative -top-[6px] ">th</span>{" "}
+                    Standard Overall Percentage *
                   </label>
                   <input
                     type="text"
@@ -605,7 +623,11 @@ function Ai_Scholarship() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <h1 className="text-s font-semibold text-gray-900 pb-2 mt-5 border-b border-gray-200">
-                  📝 12th Details
+                  📝 12
+                  <span className="text-[10px] relative -top-[7px] ml-[1px] mr-[4px]">
+                    th
+                  </span>
+                  Details
                 </h1>
                 <div className="md:col-span-2">
                   {/* <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -643,7 +665,11 @@ function Ai_Scholarship() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Stream in 12th *
+                    Stream in 12
+                    <span className="text-[10px] relative -top-[6px] ml-[1px] mr-[4px]">
+                      th
+                    </span>{" "}
+                    *
                   </label>
                   <select
                     name="twelfthStream"
@@ -662,7 +688,11 @@ function Ai_Scholarship() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    12th Standard Overall Percentage *
+                    12
+                    <span className="text-[10px] relative -top-[7px] ml-[1px] mr-[4px]">
+                      th
+                    </span>{" "}
+                    Standard Overall Percentage *
                   </label>
                   <input
                     type="text"
@@ -937,29 +967,28 @@ function Ai_Scholarship() {
                       <option value="self-employed">Self Employed</option>
                       <option value="unemployed">Unemployed</option>
                       <option value="other">Other</option>
-                      
                     </select>
                   )}
                 </div>
                 <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Mother's Income 
-                </label>
-                <select
-                  name="motherIncome"
-                  value={formData.motherIncome}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
-                >
-                  <option value="">Select income range</option>
-                  <option value="below2">Below ₹2 Lakh</option>
-                  <option value="2-5">₹2–5 Lakh</option>
-                  <option value="5-10">₹5–10 Lakh</option>
-                  <option value="above10">Above ₹10 Lakh</option>
-                  <option value="NA">Not Applicable</option>
-                </select>
-              </div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Mother's Income
+                  </label>
+                  <select
+                    name="motherIncome"
+                    value={formData.motherIncome}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                  >
+                    <option value="">Select income range</option>
+                    <option value="below2">Below ₹2 Lakh</option>
+                    <option value="2-5">₹2–5 Lakh</option>
+                    <option value="5-10">₹5–10 Lakh</option>
+                    <option value="above10">Above ₹10 Lakh</option>
+                    <option value="NA">Not Applicable</option>
+                  </select>
+                </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -1113,7 +1142,8 @@ function Ai_Scholarship() {
                   />
                   <span className="text-sm text-gray-700">
                     I am aware that I will get direct admission opportunity with
-                    industry partner Nexcore Institute of Technology without entrance exam.
+                    industry partner Nexcore Institute of Technology without
+                    entrance exam.
                   </span>
                 </label>
 
@@ -1156,8 +1186,14 @@ function Ai_Scholarship() {
             </a>
           </p>
           <p className="font-medium text-sm">
-          Phone: <a href="tel:9594402775" className="text-sm text-green-600 hover:underline">9594402775</a>
-        </p>
+            Phone:{" "}
+            <a
+              href="tel:9594402775"
+              className="text-sm text-green-600 hover:underline"
+            >
+              9594402775
+            </a>
+          </p>
           <p className="text-xs mt-2">
             Powered by{" "}
             <span className="font-semibold">Kokan Community Forum</span>
