@@ -29,7 +29,6 @@ function Ai_Scholarship() {
     eleventhPercentage: "",
 
     // 12th
-    // twelfthCollegeName: "",
     twelfthBoard: "",
     twelfthStream: "",
     twelfthPercentage: "",
@@ -78,32 +77,41 @@ function Ai_Scholarship() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (formData.motivation.trim().length < 100) {
-      alert("Please write at least 100 characters in motivation.");
-      return;
-    }
+  // ❗ Declaration is mandatory (ADD HERE)
+  if (
+    !formData.declaration1 ||
+    !formData.declaration2 ||
+    !formData.declaration3 ||
+    !formData.declaration4
+  ) {
+    alert("You must accept all declarations before submitting the form.");
+    return; // ⛔ STOPS SUBMISSION
+  }
 
-    try {
-      const response = await axios.post(
-        `${API_URL}/api/ai-scholarship/formData`,
-        formData,
-        { headers: { "Content-Type": "application/json" } }
-      );
+  // ✅ Motivation validation
+  const wordCount = formData.motivation.trim().split(/\s+/).length;
+  if (wordCount < 70) {
+    alert("Please write at least 100 words in motivation.");
+    return; // ⛔ STOPS SUBMISSION
+  }
 
-      alert("Application submitted successfully!");
-      setFormData(initialFormState);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } catch (error) {
-      const errors = error.response?.data?.errors;
-      if (errors) {
-        alert(errors.join("\n"));
-      } else {
-        alert("Submission failed. Please try again.");
-      }
-    }
-  };
+  try {
+    const response = await axios.post(
+      `${API_URL}/api/ai-scholarship/formData`,
+      formData,
+      { headers: { "Content-Type": "application/json" } }
+    );
+
+    alert("Application submitted successfully!");
+    setFormData(initialFormState);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } catch (error) {
+    alert("Submission failed. Please try again.");
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50 pt-36 py-12 px-4 sm:px-6 lg:px-8">
@@ -1106,7 +1114,7 @@ function Ai_Scholarship() {
                     name="declaration1"
                     checked={formData.declaration1}
                     onChange={handleChange}
-                    required
+                    
                     className="mt-1"
                   />
                   <span className="text-sm text-gray-700">
@@ -1122,7 +1130,7 @@ function Ai_Scholarship() {
                     name="declaration2"
                     checked={formData.declaration2}
                     onChange={handleChange}
-                    required
+                    
                     className="mt-1"
                   />
                   <span className="text-sm text-gray-700">
@@ -1137,7 +1145,7 @@ function Ai_Scholarship() {
                     name="declaration3"
                     checked={formData.declaration3}
                     onChange={handleChange}
-                    required
+                    
                     className="mt-1"
                   />
                   <span className="text-sm text-gray-700">
@@ -1153,7 +1161,7 @@ function Ai_Scholarship() {
                     name="declaration4"
                     checked={formData.declaration4}
                     onChange={handleChange}
-                    required
+                    
                     className="mt-1"
                   />
                   <span className="text-sm text-gray-700">
