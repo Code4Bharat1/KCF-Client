@@ -72,7 +72,7 @@ function AdminDashboard() {
   const getAchieversData = async () => {
     try {
       const response = await axios.get(`${API_URL}/api/achievers-award/all`);
-      console.log("Achievers Data:", response.data);
+      // console.log("Achievers Data:", response.data);
 
       if (response.data.success) {
         setAchieversData(response.data.data);
@@ -86,7 +86,7 @@ function AdminDashboard() {
   const getScholarshipData = async () => {
     try {
       const response = await axios.get(`${API_URL}/api/ai-scholarship/all`);
-      console.log("Scholarship Data:", response.data);
+      // console.log("Scholarship Data:", response.data);
 
       if (response.data.success) {
         setScholarshipData(response.data.data);
