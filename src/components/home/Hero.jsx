@@ -8,27 +8,24 @@ function Hero() {
   const heroSlides = [
     {
       id: 1,
-      image: '/images/hero/kokani_image_1.jpg',
+      image: '/images/hero/heroimage2.jpeg',
       title: 'Welcome to Kokan Community Forum',
       subtitle: 'Building stronger bonds through unity, education, and social service'
+      // ❌ no change
     },
     {
       id: 2,
-      image: '/images/hero/kokani_image_2.jpg',
+      image: '/images/hero/heroimage1.jpeg',
       title: 'Empowering Through Education',
-      subtitle: 'Scholarships and mentorship programs for our youth'
+      subtitle: 'Scholarships and mentorship programs for our youth',
+      imgTransform: 'translateY(100px)' // ✅ ONLY THIS IMAGE MOVES DOWN
     },
     {
       id: 3,
-      image: '/images/hero/kokani_image_3.jpg',
+      image: '/images/hero/heroimage3.jpeg',
       title: 'Making Social Impact',
       subtitle: 'Community service initiatives that make a difference'
-    },
-    {
-      id: 4,
-      image: '/images/hero/kokani_image_4.jpg',
-      title: 'Celebrating Our Culture',
-      subtitle: 'Preserving Kokan traditions and heritage together'
+      // ❌ no change
     }
   ]
 
@@ -55,7 +52,6 @@ function Hero() {
 
   return (
     <div className="relative w-full overflow-hidden" style={{ height: '100vh', marginTop: '0' }}>
-      {/* Image Slides */}
       {heroSlides.map((slide, index) => (
         <div
           key={slide.id}
@@ -68,20 +64,25 @@ function Hero() {
             src={slide.image}
             alt={slide.title}
             className="w-full h-full object-cover"
-            style={{ objectFit: 'cover' }}
+            style={{
+              objectFit: 'cover',
+              transform: slide.imgTransform || 'none' // ✅ SAFE DEFAULT
+              
+            }}
             onError={(e) => {
-              e.target.src = `https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1920&h=1080&fit=crop&q=80`
+              e.target.src =
+                'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1920&h=1080&fit=crop&q=80'
             }}
           />
-          
-          {/* Gradient Overlay - darker at bottom */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-          
-          {/* Text Overlay - Bottom Left */}
+
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent"></div>
+
+
+          {/* Text Overlay */}
           <div className="absolute bottom-20 left-0 right-0 px-8 md:px-16 lg:px-24">
             <div className="max-w-4xl">
-              {/* Title */}
-              <h1 
+              <h1
                 className={`text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 transition-all duration-700 ${
                   index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                 }`}
@@ -89,9 +90,8 @@ function Hero() {
               >
                 {slide.title}
               </h1>
-              
-              {/* Subtitle */}
-              <p 
+
+              <p
                 className={`text-base md:text-xl lg:text-2xl text-white/95 transition-all duration-700 ${
                   index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                 }`}
@@ -104,7 +104,7 @@ function Hero() {
         </div>
       ))}
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows — UNCHANGED */}
       <button
         onClick={prevSlide}
         className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-white/20 backdrop-blur-md hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 z-20 group"
@@ -125,7 +125,7 @@ function Hero() {
         </svg>
       </button>
 
-      {/* Dot Indicators */}
+      {/* Dot Indicators — UNCHANGED */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {heroSlides.map((_, index) => (
           <button

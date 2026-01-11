@@ -5,10 +5,11 @@ import React, { useState } from "react"
 function Video() {
   const [activeVideo, setActiveVideo] = useState(null)
 
-  // ✅ Your YouTube links
+  // ✅ Videos list (YouTube + Facebook + Local)
   const videos = [
     {
       id: 1,
+      type: "youtube",
       url: "https://youtube.com/shorts/BIB-GrKrXpQ?si=rwlNTqtqmJndLebh",
       title: "KCF Community Program 2024",
       description:
@@ -16,24 +17,34 @@ function Video() {
     },
     {
       id: 2,
+      type: "youtube",
       url: "https://youtu.be/ooiN8eOdnjc?si=OaArrWL-zyzYBcqT",
       title: "Success Stories from KCF Scholars",
       description:
         "Watch our latest community outreach program and scholarship initiatives",
     },
+    {
+      id: 3,
+      type: "facebook",
+      url: "https://www.facebook.com/reel/1483897127077427",
+      title: "KCF Community Reel (Facebook)",
+      description: "Highlights from our community activities shared on Facebook",
+    },
+    {
+      id: 4,
+      type: "local",
+      src: "/videos/kcf-event.mp4", // ⬅️ add file later
+      title: "KCF Business Stalls Video",
+      description: "Recorded moments from our recent community event",
+    },
   ]
 
-  // ✅ Extract video ID from any YouTube URL
+  // ✅ Extract YouTube ID safely
   const getVideoId = (url) => {
-    if (url.includes("shorts/")) {
-      return url.split("shorts/")[1].split("?")[0]
-    }
-    if (url.includes("youtu.be/")) {
-      return url.split("youtu.be/")[1].split("?")[0]
-    }
-    if (url.includes("watch?v=")) {
-      return url.split("watch?v=")[1].split("&")[0]
-    }
+    if (!url) return ""
+    if (url.includes("shorts/")) return url.split("shorts/")[1].split("?")[0]
+    if (url.includes("youtu.be/")) return url.split("youtu.be/")[1].split("?")[0]
+    if (url.includes("watch?v=")) return url.split("watch?v=")[1].split("&")[0]
     return ""
   }
 
@@ -43,28 +54,6 @@ function Video() {
 
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          {/* <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-600 to-green-500 rounded-full mb-4">
-            <svg
-              className="w-8 h-8 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </div> */}
-
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Watch Our Impact
           </h2>
@@ -77,7 +66,7 @@ function Video() {
         {/* Videos */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {videos.map((video) => {
-            const videoId = getVideoId(video.url)
+            const videoId = video.type === "youtube" ? getVideoId(video.url) : null
 
             return (
               <div
@@ -86,40 +75,70 @@ function Video() {
               >
                 {/* Video Container */}
                 <div className="aspect-video relative bg-black">
-                  {activeVideo === video.id ? (
+
+                  {/* 🔴 YOUTUBE */}
+                  {video.type === "youtube" && (
+                    <>
+                      {activeVideo === video.id ? (
+                        <iframe
+                          className="w-full h-full"
+                          src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+                          title={video.title}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      ) : (
+                        <div
+                          onClick={() => setActiveVideo(video.id)}
+                          className="absolute inset-0 cursor-pointer"
+                        >
+                          <img
+                            src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+                            alt={video.title}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                            <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center shadow-lg">
+                              <svg
+                                className="w-8 h-8 text-white ml-1"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </>
+                  )}
+
+                  {/* 🔵 FACEBOOK */}
+                  {video.type === "facebook" && (
                     <iframe
+                      src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(
+                        video.url
+                      )}&show_text=false&width=560`}
                       className="w-full h-full"
-                      src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-                      title={video.title}
+                      style={{ border: "none", overflow: "hidden" }}
+                      scrolling="no"
                       frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                       allowFullScreen
                     ></iframe>
-                  ) : (
-                    <div
-                      onClick={() => setActiveVideo(video.id)}
-                      className="absolute inset-0 cursor-pointer"
-                    >
-                      {/* Thumbnail */}
-                      <img
-                        src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
-                        alt={video.title}
-                        className="w-full h-full object-cover"
-                      />
+                  )}
 
-                      {/* Play Button */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-                        <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center shadow-lg">
-                          <svg
-                            className="w-8 h-8 text-white ml-1"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
+                  {/* 🟢 LOCAL VIDEO */}
+                  {video.type === "local" && (
+                    <video
+                      className="w-full h-full object-cover"
+                      controls
+                      preload="metadata"
+                    >
+                      <source src={video.src} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
                   )}
                 </div>
 
@@ -132,33 +151,34 @@ function Video() {
                     {video.description}
                   </p>
 
-                  <a
-                    href={video.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-semibold"
-                  >
-                    Watch on YouTube
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                  {video.type !== "local" && (
+                    <a
+                      href={video.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-semibold"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </a>
+                      Watch on Platform
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </a>
+                  )}
                 </div>
               </div>
             )
           })}
         </div>
-
       </div>
     </section>
   )

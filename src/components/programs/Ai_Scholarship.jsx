@@ -49,7 +49,7 @@ function Ai_Scholarship() {
     motherName: "",
     motherOccupation: "",
     motherOccupationText: "",
-    // motherIncome: "",
+    motherIncome: "",
     // isOrphan: "",
     firstGraduate: "",
 
@@ -732,14 +732,14 @@ function Ai_Scholarship() {
                     className="w-full px-4 py-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   >
                     <option value="">Select your preferred path</option>
-                    <option value="ai">
+                    <option value="Bachelor in AI & ML">
                       Bachelor in Artificial Intelligence & Machine Learning (3
                       years)
                     </option>
-                    <option value="cybersecurity">
+                    <option value="Bachelor in Computer Science">
                       Bachelor in Computer Science (3 years)
                     </option>
-                    <option value="datascience">
+                    <option value="Bachelor in Cyber Security">
                       Bachelor in Cyber Security (3 years)
                     </option>
                   </select>
@@ -834,7 +834,7 @@ function Ai_Scholarship() {
                     value={formData.fatherName}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    className="w-full px-4 py-3 border text-gray-900 bg-white border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                     placeholder="Enter father's name"
                   />
                 </div>
@@ -921,7 +921,7 @@ function Ai_Scholarship() {
                     value={formData.motherName}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    className="w-full px-4 py-3 border text-gray-900 bg-white border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                     placeholder="Enter mother's name"
                   />
                 </div>
@@ -986,7 +986,7 @@ function Ai_Scholarship() {
                     name="motherIncome"
                     value={formData.motherIncome}
                     onChange={handleChange}
-                    required
+                    
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                   >
                     <option value="">Select income range</option>
