@@ -121,6 +121,7 @@ function Footer() {
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
+                    target="_blank"
                     href={social.href}
                     title={social.name}
                     className={`w-10 h-10 bg-white border border-green-200 rounded-lg flex items-center justify-center text-gray-600 ${social.color} hover:text-white transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-md flex-shrink-0`}
