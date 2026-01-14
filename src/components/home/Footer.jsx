@@ -1,13 +1,10 @@
 "use client";
 
-
 import React from "react";
 import { useRouter } from "next/navigation";
 
-
 function Footer() {
   const router = useRouter();
-
 
   const handleNavigation = (path) => {
     router.push(path);
@@ -18,41 +15,38 @@ function Footer() {
     // { name: "Volunteers", href: "/volunteers" },
     { name: "Committee Members", href: "/committee-members" },
     { name: "Supporting Members", href: "/supporting-members" },
-    { name: "Events", href: "/events" },
+    // { name: "Events", href: "/events" },
     { name: "Support", href: "/support" },
     { name: "Contact Us", href: "/#contact" },
   ];
 
-
   const programs = [
-    { name: "Educational Scholarships",},
-    { name: "Youth Development",},
-    { name: "Cultural Events",},
-    { name: "Social Services",},
-    { name: "Community Meetings",},
+    { name: "Educational Scholarships" },
+    { name: "Youth Development" },
+    { name: "Cultural Events" },
+    { name: "Social Services" },
+    { name: "Community Meetings" },
   ];
-
 
   const resources = [
-    { name: "Become a Member",},
-    { name: "Volunteer Opportunities",},
-    { name: "Donate",},
-    { name: "Newsletter",},
-    { name: "FAQs",},
+    { name: "Become a Member" },
+    { name: "Volunteer Opportunities" },
+    { name: "Donate" },
+    { name: "Newsletter" },
+    { name: "FAQs" },
   ];
-
 
   const socialLinks = [
     {
-  name: "Facebook",
-  icon: (
-    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-    </svg>
-  ),
-  href: "https://www.facebook.com/share/v/1BegdFh9qi/",
-  color: "hover:bg-blue-600",
-},
+      name: "Facebook",
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+        </svg>
+      ),
+      href: "https://www.facebook.com/kokancommunityforum/",
+      color: "hover:bg-blue-600",
+    },
 
     {
       name: "Instagram",
@@ -86,14 +80,12 @@ function Footer() {
     },
   ];
 
-
   const currentYear = new Date().getFullYear();
-
 
   return (
     <footer className="bg-gradient-to-b from-green-50 to-white border-t border-green-300 overflow-hidden">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-2">
@@ -122,7 +114,6 @@ function Footer() {
               tomorrow.
             </p>
 
-
             {/* Social Links */}
             <div>
               <h4 className="text-gray-800 font-semibold mb-4">Follow Us</h4>
@@ -140,7 +131,6 @@ function Footer() {
               </div>
             </div>
           </div>
-
 
           {/* Quick Links */}
           <div className="min-w-0">
@@ -163,7 +153,6 @@ function Footer() {
             </ul>
           </div>
 
-
           {/* Our Programs */}
           <div className="min-w-0">
             <h3 className="text-gray-800 font-bold text-lg mb-6 relative inline-block">
@@ -185,7 +174,6 @@ function Footer() {
             </ul>
           </div>
 
-
           {/* Get Involved */}
           <div className="min-w-0">
             <h3 className="text-gray-800 font-bold text-lg mb-6 relative inline-block">
@@ -205,7 +193,6 @@ function Footer() {
                 </li>
               ))}
             </ul>
-
 
             {/* Contact Info with Properly Aligned SVG Icons */}
             <div className="mt-8 space-y-4">
@@ -231,7 +218,6 @@ function Footer() {
                   />
                 </svg>
 
-
                 <a
                   href="https://www.google.com/maps/place/KOKAN+COMMUNITY+FORUM/@18.9652187,72.8392672,824m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3be7ce37b86a6129:0xb94c884a14337eda!8m2!3d18.9652187!4d72.8418421!16s%2Fg%2F11fsvxnqls"
                   target="_blank"
@@ -242,7 +228,6 @@ function Footer() {
                   400010, India
                 </a>
               </div>
-
 
               {/* Phone */}
               <div className="flex items-center gap-3 text-gray-600">
@@ -260,7 +245,6 @@ function Footer() {
                   />
                 </svg>
 
-
                 <a
                   href="tel:+919820104711"
                   className="text-xs md:text-sm leading-5 hover:underline break-words"
@@ -268,7 +252,6 @@ function Footer() {
                   +91 98201 04711
                 </a>
               </div>
-
 
               {/* Email */}
               <div className="flex items-start gap-3 text-gray-600">
@@ -297,18 +280,13 @@ function Footer() {
         </div>
       </div>
 
-
       {/* Bottom Bar */}
       <div className="border-t border-green-100 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-7xl mx-auto px-8 sm:px-10 lg:px-12 py-6">
           <div className="flex flex-col items-center gap-4">
             <div className="text-gray-600 text-xs md:text-sm text-center">
               © {currentYear} Kokan Community Forum. All rights reserved.
             </div>
-
-
-            
-
 
             {/* Credit Section */}
             <div className="pt-4 border-t border-green-100 text-center w-full">
@@ -344,6 +322,5 @@ function Footer() {
     </footer>
   );
 }
-
 
 export default Footer;

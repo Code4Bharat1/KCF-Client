@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
+import React, { useState } from "react";
 
 function Video() {
-  const [activeVideo, setActiveVideo] = useState(null)
+  const [activeVideo, setActiveVideo] = useState(null);
 
   // ✅ Videos list (YouTube + Facebook + Local)
   const videos = [
@@ -27,46 +27,50 @@ function Video() {
       id: 3,
       type: "facebook",
       url: "https://www.facebook.com/reel/1483897127077427",
+      thumbnail: "/thumbnails/thumb1.png",
       title: "KCF Community Reel (Facebook)",
-      description: "Highlights from our community activities shared on Facebook",
+      description:
+        "Highlights from our community activities shared on Facebook",
     },
     {
       id: 4,
       type: "local",
-      src: "/videos/kcf-event.mp4", // ⬅️ add file later
-      title: "KCF Business Stalls Video",
+      src: "/videos/kcf-event.mp4",
+      thumbnail: "/thumbnails/thumb2.png",
+      title: "KCF Business Stalls",
       description: "Recorded moments from our recent community event",
     },
-  ]
+  ];
 
   // ✅ Extract YouTube ID safely
   const getVideoId = (url) => {
-    if (!url) return ""
-    if (url.includes("shorts/")) return url.split("shorts/")[1].split("?")[0]
-    if (url.includes("youtu.be/")) return url.split("youtu.be/")[1].split("?")[0]
-    if (url.includes("watch?v=")) return url.split("watch?v=")[1].split("&")[0]
-    return ""
-  }
+    if (!url) return "";
+    if (url.includes("shorts/")) return url.split("shorts/")[1].split("?")[0];
+    if (url.includes("youtu.be/"))
+      return url.split("youtu.be/")[1].split("?")[0];
+    if (url.includes("watch?v=")) return url.split("watch?v=")[1].split("&")[0];
+    return "";
+  };
 
   return (
     <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-white to-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Watch Our Impact
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-            See how Kokan Community Forum is transforming lives through education
-            and community support
+            See how Kokan Community Forum is transforming lives through
+            education and community support
           </p>
         </div>
 
         {/* Videos */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {videos.map((video) => {
-            const videoId = video.type === "youtube" ? getVideoId(video.url) : null
+            const videoId =
+              video.type === "youtube" ? getVideoId(video.url) : null;
 
             return (
               <div
@@ -75,7 +79,6 @@ function Video() {
               >
                 {/* Video Container */}
                 <div className="aspect-video relative bg-black">
-
                   {/* 🔴 YOUTUBE */}
                   {video.type === "youtube" && (
                     <>
@@ -116,29 +119,83 @@ function Video() {
 
                   {/* 🔵 FACEBOOK */}
                   {video.type === "facebook" && (
-                    <iframe
-                      src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(
-                        video.url
-                      )}&show_text=false&width=560`}
-                      className="w-full h-full"
-                      style={{ border: "none", overflow: "hidden" }}
-                      scrolling="no"
-                      frameBorder="0"
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                      allowFullScreen
-                    ></iframe>
+                    <>
+                      {activeVideo === video.id ? (
+                        <iframe
+                          src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(
+                            video.url
+                          )}&show_text=false&autoplay=1`}
+                          className="w-full h-full"
+                          style={{ border: "none", overflow: "hidden" }}
+                          scrolling="no"
+                          frameBorder="0"
+                          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                          allowFullScreen
+                        ></iframe>
+                      ) : (
+                        <div
+                          onClick={() => setActiveVideo(video.id)}
+                          className="absolute inset-0 cursor-pointer"
+                        >
+                          <img
+                            src={video.thumbnail}
+                            alt={video.title}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                            <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center shadow-lg">
+                              <svg
+                                className="w-8 h-8 text-white ml-1"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </>
                   )}
+
+                  {/* 📁 LOCAL VIDEO */}
 
                   {/* 🟢 LOCAL VIDEO */}
                   {video.type === "local" && (
-                    <video
-                      className="w-full h-full object-cover"
-                      controls
-                      preload="metadata"
-                    >
-                      <source src={video.src} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                    <>
+                      {activeVideo === video.id ? (
+                        <video
+                          className="w-full h-full object-cover"
+                          controls
+                          autoPlay
+                        >
+                          <source src={video.src} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      ) : (
+                        <div
+                          onClick={() => setActiveVideo(video.id)}
+                          className="absolute inset-0 cursor-pointer"
+                        >
+                          <img
+                            src={video.thumbnail}
+                            alt={video.title}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                            <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center shadow-lg">
+                              <svg
+                                className="w-8 h-8 text-white ml-1"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
 
@@ -176,12 +233,12 @@ function Video() {
                   )}
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Video
+export default Video;

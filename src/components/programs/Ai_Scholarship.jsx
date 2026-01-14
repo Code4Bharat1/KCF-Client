@@ -79,7 +79,7 @@ function Ai_Scholarship() {
   const handleSubmit = async (e) => {
   e.preventDefault();
 
-  // ❗ Declaration is mandatory (ADD HERE)
+  // ❗ Declaration is mandatory
   if (
     !formData.declaration1 ||
     !formData.declaration2 ||
@@ -87,28 +87,44 @@ function Ai_Scholarship() {
     !formData.declaration4
   ) {
     alert("You must accept all declarations before submitting the form.");
-    return; // ⛔ STOPS SUBMISSION
+    return;
   }
 
   // ✅ Motivation validation
   const wordCount = formData.motivation.trim().split(/\s+/).length;
   if (wordCount < 70) {
     alert("Please write at least 100 words in motivation.");
-    return; // ⛔ STOPS SUBMISSION
+    return;
   }
 
   try {
-    const response = await axios.post(
+    await axios.post(
       `${API_URL}/api/ai-scholarship/formData`,
       formData,
-      { headers: { "Content-Type": "application/json" } }
+      {
+        headers: { "Content-Type": "application/json" },
+      }
     );
 
     alert("Application submitted successfully!");
     setFormData(initialFormState);
     window.scrollTo({ top: 0, behavior: "smooth" });
+
   } catch (error) {
-    alert("Submission failed. Please try again.");
+    // 🔴 DUPLICATE EMAIL HANDLING
+    if (error.response?.status === 409) {
+      alert("An application has already been submitted using this email.");
+      return;
+    }
+
+    // 🟠 VALIDATION ERROR FROM BACKEND
+    if (error.response?.status === 400) {
+      alert("Please check your form details and try again.");
+      return;
+    }
+
+    // 🔥 FALLBACK (server/network issue)
+    alert("Something went wrong. Please try again later.");
   }
 };
 

@@ -139,8 +139,19 @@ function AchieversAward() {
       setAadhaarPreviews([])
 
     } catch (error) {
-      console.error("Error submitting form:", error)
-      alert(error.response?.data?.message || "Failed to submit form. Please try again.")
+       console.error("Error submitting form:", error);
+
+    // 🔴 DUPLICATE EMAIL HANDLING
+    if (error.response?.status === 409) {
+      alert("An application with this email already exists.");
+      return;
+    }
+
+    // 🟠 OTHER BACKEND / NETWORK ERRORS
+    alert(
+      error.response?.data?.message ||
+      "Failed to submit form. Please try again."
+    );
     } finally {
       setIsSubmitting(false)
     }
