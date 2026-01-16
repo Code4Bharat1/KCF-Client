@@ -295,7 +295,7 @@ function Navbar() {
               onClick={() => handleNavigation("/achievers-award")}
               className="relative px-4 py-2 text-gray-700 hover:text-green-600 font-medium transition-all duration-200 group"
             >
-              Achievers Form
+              Achievers Nomination
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
             </button>
 
@@ -532,7 +532,7 @@ function Navbar() {
               onClick={() => handleNavigation("/achievers-award")}
               className="w-full text-left block px-4 py-3 text-gray-700 hover:bg-white hover:text-green-600 hover:pl-6 rounded-lg font-medium transition-all duration-200 hover:shadow-sm"
             >
-              Achievers Award
+              Achievers Nomination
             </button>
 
             {/* Mobile Support Link */}
