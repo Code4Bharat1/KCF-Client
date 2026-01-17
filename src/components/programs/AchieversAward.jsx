@@ -672,7 +672,7 @@ function AchieversAward() {
             href="mailto:awards@kokanforum.org"
             className="text-green-600 hover:underline"
           >
-            awards@kokanforum.org
+            kokancommunityforumWKD@gmail.com
           </a>
         </p>
       </div>
