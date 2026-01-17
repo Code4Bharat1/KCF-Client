@@ -40,6 +40,15 @@ function Video() {
       title: "KCF Business Stalls",
       description: "Recorded moments from our recent community event",
     },
+    {
+      id: 5,
+      type: "local",
+      src: "/videos/localvideo2.mp4",
+      thumbnail: "/thumbnails/thumb3.png",
+      title: "KCF Business Stalls",
+      description: "Recorded moments from our recent community event",
+      isPortrait: true, // ✅ Added this flag for the portrait video
+    },
   ];
 
   // ✅ Extract YouTube ID safely
@@ -158,14 +167,15 @@ function Video() {
                     </>
                   )}
 
-                  {/* 📁 LOCAL VIDEO */}
-
                   {/* 🟢 LOCAL VIDEO */}
                   {video.type === "local" && (
                     <>
                       {activeVideo === video.id ? (
                         <video
-                          className="w-full h-full object-cover"
+                          // ✅ Logic: "object-contain" prevents cropping for portrait videos
+                          className={`w-full h-full ${
+                            video.isPortrait ? "object-contain" : "object-cover"
+                          }`}
                           controls
                           autoPlay
                         >
@@ -180,7 +190,12 @@ function Video() {
                           <img
                             src={video.thumbnail}
                             alt={video.title}
-                            className="w-full h-full object-cover"
+                            // ✅ Same logic for the thumbnail
+                            className={`w-full h-full ${
+                              video.isPortrait
+                                ? "object-contain"
+                                : "object-cover"
+                            }`}
                           />
                           <div className="absolute inset-0 flex items-center justify-center bg-black/40">
                             <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center shadow-lg">
