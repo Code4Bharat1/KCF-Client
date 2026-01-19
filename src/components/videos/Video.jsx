@@ -49,6 +49,14 @@ function Video() {
       description: "Recorded moments from our recent community event",
       isPortrait: true, // ✅ Added this flag for the portrait video
     },
+    {
+      id: 6,
+      type: "youtube",
+      url: "https://youtube.com/shorts/lzP0Zz6oWjY?si=lHBMlSE7EQPmBW6S",
+      title: "KCF Community Program 2024",
+      description:
+        "Watch our latest community outreach program and scholarship initiatives",
+    },
   ];
 
   // ✅ Extract YouTube ID safely
